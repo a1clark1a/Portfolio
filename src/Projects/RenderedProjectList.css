@@ -1,0 +1,17 @@
+.img {
+  max-height: 350px;
+  object-fit: contain;
+}
+
+.proj_desc {
+  color: black;
+}
+
+h3 {
+  color: black;
+}
+
+.proj_content {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,32 @@
+.cont_sect {
+  margin-top: 50px;
+}
+
+.link_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cont_h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.cont_icon {
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .cont_icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+
+  .cont_h2 {
+    font-size: 25px;
+    text-align: center;
+  }
+}

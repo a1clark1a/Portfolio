@@ -4,7 +4,7 @@
 
 ## Author: Anthony Clark Perfecto
 
-##Technology: HTML5, CSS3, JavascriptES6, React.JS, Zeit.co
+## Technology: HTML5, CSS3, JavascriptES6, React.JS, Zeit.co
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

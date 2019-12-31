@@ -4,7 +4,7 @@
   width: 205px;
   height: 265px;
   object-fit: contain;
-  margin: 100px 50px 0 0;
+  margin: 0 10px 0 10px;
 }
 
 article {
@@ -15,20 +15,20 @@ article {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 100px 0 0 0;
 }
 
 .about_sect {
   text-align: center;
   background-color: #181818;
   color: whitesmoke;
-  font-weight: 100px;
 }
 
 .about_sect h2 {
   padding-bottom: 20px;
 }
 
-.about_sect h2:after {
+.skill-header:after {
   content: "";
   display: block;
   margin: auto;
@@ -58,6 +58,10 @@ li {
   padding: 0;
 }
 
+.skills-list {
+  padding-top: 50px;
+}
+
 @media screen and (min-width: 800px) {
   .skills {
     display: flex;
@@ -69,13 +73,22 @@ li {
   }
 
   .description {
-    font-size: 25px;
+    margin: 10px;
+    font-size: 20px;
+    width: 50%;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 799px) {
   .description {
-    margin: 5px;
+    margin: 25px 10px 15px 10px;
     font-size: 20px;
+  }
+
+  .pic_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

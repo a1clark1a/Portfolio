@@ -1,5 +1,5 @@
 .cont_sect {
-  margin-top: 30px;
+  margin: 30px 0 30px 0;
 }
 
 .link_wrapper {
@@ -16,6 +16,15 @@
   width: 80px;
   height: 80px;
   margin: 10px;
+}
+
+.cont_h2:after {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 30%;
+  padding-top: 20px;
+  border-bottom: 3px solid red;
 }
 
 @media screen and (max-width: 600px) {

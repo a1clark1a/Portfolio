@@ -12,19 +12,18 @@ export default function About() {
           className="prof_pic"
           alt="Anthony Clark Perfecto Headshot"
         />
-        <Contact />
-      </article>
-      <article className="description">
-        <p>
+        <p className="description">
           My name is Anthony Clark Perfecto, (I go by Clark but either is fine)
           I am an aspiring full-stack web developer and game programmer with a
           passion for implementating new systems and functionalities,
           optimization of code base, debugging and problem-solving with
-          accuracy, and learning new design patterns and programming paradigms
+          accuracy, and learning new design patterns and programming paradigms.
         </p>
       </article>
+      <Contact />
+
       <article className="skills-list">
-        <h2>
+        <h2 className="skill-header">
           <code>{"< "}</code>Technical Skills<code>{" >"}</code>
         </h2>
         <div className="skills">

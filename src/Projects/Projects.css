@@ -49,7 +49,7 @@
 }
 
 .tab_wrapper button:active {
-  background-color: #161616;
+  background-color: #242323;
   box-shadow: 0 5px #666666;
   transform: translateY(4px);
 }
@@ -57,5 +57,11 @@
 @media screen and (max-width: 600px) {
   .tab_wrapper button span {
     font-size: 20px;
+  }
+
+  .tab_wrapper button {
+    padding: 10px;
+    width: auto;
+    margin: 0 10px 0 10px;
   }
 }

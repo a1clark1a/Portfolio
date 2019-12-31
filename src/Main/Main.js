@@ -15,9 +15,9 @@ export default function Main() {
           <h2 className="title">
             I'm a full-stack developer and game programmer
           </h2>
-          <div class="container">
+          <div className="container">
             <a href="#about" className="about_button border-animation">
-              <span class="border-animation__inner">Get to know me </span>
+              <span className="border-animation__inner">Get to know me </span>
             </a>
           </div>
         </div>

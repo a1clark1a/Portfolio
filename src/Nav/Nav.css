@@ -34,20 +34,6 @@
   height: 21px;
 }
 
-@media screen and (max-width: 600px) {
-  .toggle-button {
-    display: flex;
-  }
-
-  .nav_bar-links {
-    flex-direction: column;
-  }
-
-  .nav_bar-links li {
-    text-align: center;
-  }
-}
-
 /* Tag animation */
 
 .nav_bar-links li {
@@ -84,4 +70,19 @@
 .nav_bar-links li:hover:after {
   opacity: 1;
   transform: translateX(0px);
+}
+
+@media screen and (max-width: 799px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .nav_bar-links {
+    flex-direction: column;
+  }
+
+  .nav_bar-links li {
+    text-align: center;
+    padding: 5px 5px;
+  }
 }

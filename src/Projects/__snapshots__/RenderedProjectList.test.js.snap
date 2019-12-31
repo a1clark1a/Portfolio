@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RendedredProjectList component It Renders given no projects 1`] = `
+<div
+  className="proj_content"
+>
+  <div
+    className="carousel_wrapper"
+  >
+    <Bootstrap(undefined) />
+  </div>
+</div>
+`;
+
+exports[`RendedredProjectList component Renders the first project by default 1`] = `
+<div
+  className="proj_content"
+>
+  <div
+    className="carousel_wrapper"
+  >
+    <Bootstrap(undefined) />
+  </div>
+</div>
+`;

@@ -13,7 +13,7 @@ export default function Main() {
             Hey there! <span className="name">I'm Clark Perfecto</span>
           </h2>
           <h2 className="title">
-            I'm a full-stack developer and game programmer
+            I'm a Full-Stack Developer and Game Programmer
           </h2>
           <div className="container">
             <a href="#about" className="about_button border-animation">

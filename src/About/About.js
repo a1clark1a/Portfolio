@@ -15,9 +15,9 @@ export default function About() {
         <p className="description">
           My name is Anthony Clark Perfecto, (I go by Clark but either is fine)
           I am an aspiring full-stack web developer and game programmer with a
-          passion for implementating new systems and functionalities,
-          optimization of code base, debugging and problem-solving with
-          accuracy, and learning new design patterns and programming paradigms.
+          passion for implementing new systems and functionalities, optimizing
+          code bases, debugging and problem-solving with accuracy, and learning
+          new design patterns and programming paradigms.
         </p>
       </article>
       <Contact />

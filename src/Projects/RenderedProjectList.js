@@ -13,15 +13,12 @@ export default function RenderedProjectList(props) {
         <a href={proj.link} target="_blank" rel="noopener noreferrer">
           <img src={str} className="d-block w-100 img" alt={`${proj.name}`} />
         </a>
-        <Carousel.Caption>
-          <h3>{proj.name}</h3>
-        </Carousel.Caption>
       </Carousel.Item>
     );
   });
   return (
     <div className="proj_content">
-      <div>
+      <div className="carousel_wrapper">
         <Carousel>{projList_render}</Carousel>
       </div>
     </div>

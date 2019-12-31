@@ -23,7 +23,7 @@ export default class Projects extends Component {
           value={i}
           onClick={e => this.handleProjectToRender(proj[proj_keys[i]])}
         >
-          {proj_keys[i]}
+          <span>{proj_keys[i]}</span>
         </button>
       );
     });

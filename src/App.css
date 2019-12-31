@@ -1,4 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Lora&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Lora", serif;
+}
+
 footer {
   text-align: center;
-  margin: 10px 0 20px 0;
+  padding: 10px 0 20px 0;
+  border-top: 2px solid red;
+  background-color: #181818;
+}
+
+code {
+  color: #ffffff;
 }

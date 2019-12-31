@@ -7,9 +7,15 @@ import github from "./Images/github.png";
 export default function Contact() {
   return (
     <section className="cont_sect" id="contact">
-      <h2 className="cont_h2">Need to reach me? </h2>
+      <h2 className="cont_h2">Let's get in touch. </h2>
       <div className="link_wrapper">
-        <img className="cont_icon img" src={linkedin} alt="LinkedIn link" />
+        <a
+          href="https://www.linkedin.com/in/acperfecto/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="cont_icon img" src={linkedin} alt="LinkedIn link" />
+        </a>
         <a
           href="https://mail.google.com/mail/?view=cm&fs=1&to=a1clark1a@gmail.com"
           target="_blank"
@@ -21,7 +27,13 @@ export default function Contact() {
             alt="Send mail link"
           />
         </a>
-        <img className="cont_icon img" src={github} alt="Github repo link" />
+        <a
+          href="https://github.com/a1clark1a"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img className="cont_icon img" src={github} alt="Github repo link" />
+        </a>
       </div>
     </section>
   );

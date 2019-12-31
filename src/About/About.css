@@ -1,17 +1,61 @@
 .prof_pic {
-  border: 1px solid wheat;
+  border: 1px solid white;
   border-radius: 50%;
-  height: 150px;
-  width: 150px;
-  margin-top: 50px;
+  width: 205px;
+  height: 265px;
+  object-fit: contain;
+  margin: 100px 50px 0 0;
+}
+
+article {
+  padding-bottom: 50px;
+}
+
+.pic_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about_sect {
   text-align: center;
+  background-color: #181818;
+  color: whitesmoke;
+  font-weight: 100px;
 }
 
+.about_sect h2 {
+  padding-bottom: 20px;
+}
+
+.about_sect h2:after {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding-top: 20px;
+  border-bottom: 3px solid red;
+}
+
+.about_sect h3 {
+  color: whitesmoke;
+  padding-bottom: 10px;
+}
+
+.about_sect h3:after {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 70px;
+  padding-top: 20px;
+  border-bottom: 2px solid red;
+}
 li {
   list-style: none;
+}
+
+.skills ul {
+  padding: 0;
 }
 
 @media screen and (min-width: 800px) {
@@ -21,12 +65,17 @@ li {
   }
 
   .skills > div {
-    margin: 10px;
+    margin: 0 10px 0 10px;
+  }
+
+  .description {
+    font-size: 25px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .description {
     margin: 5px;
+    font-size: 20px;
   }
 }

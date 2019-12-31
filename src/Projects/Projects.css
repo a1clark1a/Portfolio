@@ -1,5 +1,61 @@
+.projects_sect {
+  background-color: #222222;
+}
+
 .tab_wrapper {
   display: flex;
   justify-content: center;
-  margin: 10px;
+  padding: 50px 0 100px 0;
+}
+
+.tab_wrapper button {
+  border-radius: 4px;
+  background-color: #161616;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+  width: 250px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 15px;
+  box-shadow: 0 9px #999999;
+}
+
+.tab_wrapper button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.tab_wrapper button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.tab_wrapper button:hover span {
+  padding-right: 25px;
+}
+
+.tab_wrapper button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.tab_wrapper button:active {
+  background-color: #161616;
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
+}
+
+@media screen and (max-width: 600px) {
+  .tab_wrapper button span {
+    font-size: 20px;
+  }
 }

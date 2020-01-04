@@ -17,7 +17,7 @@ export default function Contact() {
           <img className="cont_icon img" src={linkedin} alt="LinkedIn link" />
         </a>
         <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=a1clark1a@gmail.com"
+          href="mailto:a1clark1a@gmail.com?subject=Let's get in touch"
           target="_blank"
           rel="noopener noreferrer"
         >

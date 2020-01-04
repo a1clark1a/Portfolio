@@ -18,7 +18,7 @@ class App extends Component {
           <Projects />
         </main>
         <footer>
-          <code>Anthony Clark Perfecto @2019</code>
+          <code>Anthony Clark Perfecto @{new Date().getFullYear()}</code>
         </footer>
       </>
     );

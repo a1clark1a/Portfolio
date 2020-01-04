@@ -9,9 +9,9 @@ export default function Main() {
       <section className="home_sect">
         <div className="info_wrapper">
           <Particles params={Params} className="particles" />
-          <h2 className="intro">
+          <h1 className="intro">
             Hey there! <span className="name">I'm Clark Perfecto</span>
-          </h2>
+          </h1>
           <h2 className="title">
             I'm a Full-Stack Developer and Game Programmer
           </h2>

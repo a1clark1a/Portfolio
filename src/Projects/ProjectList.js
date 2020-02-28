@@ -1,21 +1,12 @@
-import googleBooks from "./images/googleBooksimg.png";
-import quizApp from "./images/quizApp.png";
 import NearMe from "./images/NearMe.png";
 import GameCollection from "./images/GameCollectionjpg.jpg";
 import ShadowBot from "./images/shadowbot.png";
+import Memegram from "./images/Memegram.jpg";
+import Noteful from "./images/Noteful.PNG";
 
 export const ProjectList = [
   {
     "Web Project": [
-      {
-        name: "GoogleBooks",
-        img: { googleBooks },
-        link: "https://github.com/a1clark1a/googlebooks",
-        description: `React.js, Javascript(ES6, JSx), CSS3, HTML5
-        A web app that allows users to look up books by entering either the name of the book or the author. 
-        Allow users to filter the search results by print type or book type.
-        `
-      },
       {
         name: "NearMe App",
         img: { NearMe },
@@ -25,12 +16,18 @@ export const ProjectList = [
         `
       },
       {
-        name: "QuizApp",
-        img: { quizApp },
-        link: "https://github.com/a1clark1a/QuizApp",
-        description: `jQuery 3.4.1, Javascript(ES6), HTML5, CSS3
-        Users are quizzed on their knowledge of video game characters.
-        `
+        name: "Memegram",
+        img: { Memegram },
+        link: "https://memegram.now.sh/",
+        description: `PERN(PostgreSQL, Express, ReactJs, Node.js) Stack
+        Image(Memes) Browsing and uploading sight`
+      },
+      {
+        name: "Noteful",
+        img: { Noteful },
+        link: "https://a1clark1a-noteful-client.now.sh/",
+        description: `PERN(PostgreSQL, Express, ReactJs, Node.js) Stack
+        Note taking app`
       }
     ]
   },

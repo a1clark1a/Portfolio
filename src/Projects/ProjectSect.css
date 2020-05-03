@@ -1,0 +1,46 @@
+.proj-sect {
+  background-color: #222222;
+  color: whitesmoke;
+}
+
+.proj-tab {
+  display: flex;
+  justify-content: center;
+  padding: 0 30px;
+}
+
+.proj-tab .button {
+  border-radius: 4px;
+  background-color: #161616;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+  width: 250px;
+  cursor: pointer;
+  margin: 10px 5px 10px 5px;
+  border-radius: 15px;
+  box-shadow: 0 9px #999999;
+}
+
+.proj-tab .button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s;
+}
+
+.proj-tab .button:active {
+  background-color: #242323;
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
+}
+
+.proj-tab .button:focus {
+  outline: none;
+  color: #cc2b2b;
+}
+
+@media screen and (min-width: 700px) {
+}

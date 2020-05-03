@@ -19,50 +19,13 @@
   text-align: center;
   color: white;
 }
-.about_button span {
-  align-self: center;
-  text-decoration: none;
-}
-
-.about_button {
-  font-size: 35px;
-}
-
-.border-animation__inner {
-  color: white;
-  font-size: 30px;
-}
 
 .container {
-  z-index: 1;
-}
-.container span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.container span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 15px;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.container:hover span {
-  padding-right: 25px;
-}
-
-.container:hover span:after {
-  opacity: 1;
-  right: 0;
+  z-index: 100;
 }
 
 .name {
-  color: red;
+  color: #cc2b2b;
   text-shadow: 0 4px 5px black;
   font-weight: bold;
 }
@@ -73,268 +36,42 @@
   }
 }
 
-/*Button animation*/
-
-.container {
-  width: 100%;
-}
-
-.border-animation {
-  --border-width: 0.1em;
-  --animation-speed: 0.5s;
-  --color: #ffffff;
-  color: var(--color);
-  position: relative;
-  display: inline-block;
-  line-height: 1em;
-  -webkit-transform: scale(1, 0.8);
-  transform: scale(1, 0.8);
-  border: var(--border-width) solid transparent;
-}
-.border-animation .border-animation__inner {
-  position: relative;
-  display: inline-block;
-  width: 100%;
+.button {
+  font-family: "Gelasio";
+  border-radius: 4px;
+  background-color: #161616;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 25px;
+  padding: 20px;
+  width: 250px;
   cursor: pointer;
-  padding: 15px 20px 15px 20px;
-  background-color: #242424;
-  z-index: 1;
-  border: solid var(--border-width) transparent;
-  border-top: 2px solid #333333;
-  border-right: 2px solid #333333;
-  border-bottom: 2px solid #cccccc;
-  border-left: 2px solid #cccccc;
+  margin: 10px 5px 10px 5px;
+  border-radius: 15px;
+  box-shadow: 0 9px #999999;
 }
-.border-animation:before,
-.border-animation:after {
-  content: "";
-  position: absolute;
-  background: var(--color);
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s;
 }
-.border-animation:focus:before,
-.border-animation:hover:before {
-  -webkit-animation: beforeBorders var(--animation-speed) forwards ease-in-out;
-  animation: beforeBorders var(--animation-speed) forwards ease-in-out;
+
+.button:active {
+  background-color: #242323;
+  box-shadow: 0 5px #666666;
+  transform: translateY(4px);
 }
-.border-animation:focus:after,
-.border-animation:hover:after {
-  -webkit-animation: afterBorders var(--animation-speed) forwards ease-in-out;
-  animation: afterBorders var(--animation-speed) forwards ease-in-out;
+
+a:active > button {
+  color: #cc2b2b;
 }
-.border-animation:focus,
-.border-animation:hover {
-  -webkit-animation: borderColors var(--animation-speed) steps(1) forwards;
-  animation: borderColors var(--animation-speed) steps(1) forwards;
+
+a:focus,
+a:focus > .button,
+.button:focus {
   outline: none;
-}
-.border-animation:focus .border-animation__inner,
-.border-animation:hover .border-animation__inner {
-  -webkit-animation: background calc(var(--animation-speed) / 5 * 3) forwards
-    ease-in-out;
-  animation: background calc(var(--animation-speed) / 5 * 3) forwards
-    ease-in-out;
-  -webkit-animation-delay: calc(var(--animation-speed) / 5 * 2);
-  animation-delay: calc(var(--animation-speed) / 5 * 2);
-}
-
-@-webkit-keyframes beforeBorders {
-  0% {
-    top: calc(var(--border-width) * -1);
-    left: 50%;
-    bottom: auto;
-    right: auto;
-    width: 0;
-    height: var(--border-width);
-  }
-  33% {
-    top: calc(var(--border-width) * -1);
-    left: calc(var(--border-width) * -1);
-    bottom: auto;
-    right: auto;
-    width: calc(var(--border-width) + 50%);
-    height: var(--border-width);
-  }
-  66% {
-    top: calc(var(--border-width) * -1);
-    left: calc(var(--border-width) * -1);
-    bottom: auto;
-    right: auto;
-    width: var(--border-width);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-  100% {
-    top: auto;
-    left: calc(var(--border-width) * -1);
-    bottom: calc(var(--border-width) * -1);
-    right: auto;
-    width: calc(var(--border-width) + 50%);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-}
-
-@keyframes beforeBorders {
-  0% {
-    top: calc(var(--border-width) * -1);
-    left: 50%;
-    bottom: auto;
-    right: auto;
-    width: 0;
-    height: var(--border-width);
-  }
-  33% {
-    top: calc(var(--border-width) * -1);
-    left: calc(var(--border-width) * -1);
-    bottom: auto;
-    right: auto;
-    width: calc(var(--border-width) + 50%);
-    height: var(--border-width);
-  }
-  66% {
-    top: calc(var(--border-width) * -1);
-    left: calc(var(--border-width) * -1);
-    bottom: auto;
-    right: auto;
-    width: var(--border-width);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-  100% {
-    top: auto;
-    left: calc(var(--border-width) * -1);
-    bottom: calc(var(--border-width) * -1);
-    right: auto;
-    width: calc(var(--border-width) + 50%);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-}
-@-webkit-keyframes afterBorders {
-  0% {
-    top: calc(var(--border-width) * -1);
-    left: auto;
-    bottom: auto;
-    right: 50%;
-    width: 0;
-    height: var(--border-width);
-  }
-  33% {
-    top: calc(var(--border-width) * -1);
-    left: auto;
-    bottom: auto;
-    right: calc(var(--border-width) * -1);
-    width: calc(var(--border-width) + 50%);
-    height: var(--border-width);
-  }
-  66% {
-    top: calc(var(--border-width) * -1);
-    left: auto;
-    bottom: auto;
-    right: calc(var(--border-width) * -1);
-    width: var(--border-width);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-  100% {
-    top: auto;
-    left: auto;
-    bottom: calc(var(--border-width) * -1);
-    right: calc(var(--border-width) * -1);
-    width: calc(var(--border-width) + 50%);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-}
-@keyframes afterBorders {
-  0% {
-    top: calc(var(--border-width) * -1);
-    left: auto;
-    bottom: auto;
-    right: 50%;
-    width: 0;
-    height: var(--border-width);
-  }
-  33% {
-    top: calc(var(--border-width) * -1);
-    left: auto;
-    bottom: auto;
-    right: calc(var(--border-width) * -1);
-    width: calc(var(--border-width) + 50%);
-    height: var(--border-width);
-  }
-  66% {
-    top: calc(var(--border-width) * -1);
-    left: auto;
-    bottom: auto;
-    right: calc(var(--border-width) * -1);
-    width: var(--border-width);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-  100% {
-    top: auto;
-    left: auto;
-    bottom: calc(var(--border-width) * -1);
-    right: calc(var(--border-width) * -1);
-    width: calc(var(--border-width) + 50%);
-    height: calc((var(--border-width) * 2) + 100%);
-  }
-}
-@-webkit-keyframes borderColors {
-  0% {
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-  33% {
-    border-top-color: var(--color);
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-  66% {
-    border-top-color: var(--color);
-    border-right-color: var(--color);
-    border-bottom-color: transparent;
-    border-left-color: var(--color);
-  }
-  100% {
-    border-top-color: var(--color);
-    border-right-color: var(--color);
-    border-bottom-color: var(--color);
-    border-left-color: var(--color);
-  }
-}
-@keyframes borderColors {
-  0% {
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-  33% {
-    border-top-color: var(--color);
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-  66% {
-    border-top-color: var(--color);
-    border-right-color: var(--color);
-    border-bottom-color: transparent;
-    border-left-color: var(--color);
-  }
-  100% {
-    border-top-color: var(--color);
-    border-right-color: var(--color);
-    border-bottom-color: var(--color);
-    border-left-color: var(--color);
-  }
-}
-@-webkit-keyframes background {
-  to {
-    background: #555;
-    text-shadow: 0 0.1em 0.1em #111;
-  }
-}
-@keyframes background {
-  to {
-    background: #555;
-    text-shadow: 0 0.1em 0.1em #111;
-  }
+  color: #cc2b2b;
 }

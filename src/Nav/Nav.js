@@ -4,14 +4,13 @@ import "./Nav.css";
 
 export default class Nav extends Component {
   state = {
-    isActive: true,
-    isMobile: false
+    isActive: false,
+    isMobile: false,
   };
 
   handleWindowSize = () => {
     this.setState({
-      isMobile: window.innerWidth < 600,
-      isActive: window.innerWidth > 600
+      isActive: window.innerWidth > 800 ? true : false,
     });
   };
 
@@ -25,7 +24,7 @@ export default class Nav extends Component {
 
   toggleNav() {
     this.setState({
-      isActive: !this.state.isActive
+      isActive: !this.state.isActive,
     });
   }
 

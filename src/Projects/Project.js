@@ -24,7 +24,7 @@ const Project = ({
       );
     });
   };
-  console.log(server);
+
   return (
     <div className={`proj-body body-${position}`}>
       <h2 className={`proj-name name-${position}`}>{name}</h2>

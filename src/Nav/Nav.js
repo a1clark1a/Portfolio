@@ -1,59 +1,62 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import icon from "./Hamburger_icon.svg.png";
 import "./Nav.css";
 
-export default class Nav extends Component {
-  state = {
-    isActive: false,
-    isMobile: false,
+const getWidth = () =>
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth;
+
+const Nav = () => {
+  const [width, setWidth] = useState(getWidth());
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    if (getWidth() > 800) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+    const handleWindowSize = () => {
+      setWidth(getWidth());
+    };
+
+    window.addEventListener("resize", handleWindowSize);
+    return () => {
+      window.removeEventListener("resize", handleWindowSize);
+    };
+  }, [width]);
+
+  const toggleNav = () => {
+    setIsActive(!isActive);
   };
 
-  handleWindowSize = () => {
-    this.setState({
-      isActive: window.innerWidth > 800 ? true : false,
-    });
-  };
+  const renderNavbarLinks = (
+    <ul className="nav_bar-links">
+      <li>
+        <a href="#home">Home</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+    </ul>
+  );
 
-  componentDidMount() {
-    window.addEventListener("resize", this.handleWindowSize);
-  }
+  return (
+    <nav className="nav_bar">
+      <img
+        src={icon}
+        alt="navbar icon"
+        className="toggle-button"
+        onClick={() => toggleNav()}
+      />
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleWindowSize);
-  }
+      {isActive && renderNavbarLinks}
+    </nav>
+  );
+};
 
-  toggleNav() {
-    this.setState({
-      isActive: !this.state.isActive,
-    });
-  }
-
-  render() {
-    const renderNavbarLinks = (
-      <ul className="nav_bar-links">
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-      </ul>
-    );
-
-    return (
-      <nav className="nav_bar">
-        <img
-          src={icon}
-          alt="navbar icon"
-          className="toggle-button"
-          onClick={() => this.toggleNav()}
-        />
-
-        {this.state.isActive && renderNavbarLinks}
-      </nav>
-    );
-  }
-}
+export default Nav;

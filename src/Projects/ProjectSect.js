@@ -5,7 +5,10 @@ import { ProjectList } from "./ProjectList";
 
 import "./ProjectSect.css";
 
-const getWidth = () => window.innerWidth;
+const getWidth = () =>
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth;
 
 const ProjectSect = () => {
   const [renderedProject, setRenderedProject] = useState("Web Project");
@@ -45,7 +48,7 @@ const ProjectSect = () => {
   };
 
   return (
-    <section className="proj-sect">
+    <section className="proj-sect" id="projects">
       <div className="proj-tab">
         <button
           className="button"

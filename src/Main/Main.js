@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Particles from "react-particles-js";
 import Params from "./particlesjs-config.json";
 import "./Main.css";

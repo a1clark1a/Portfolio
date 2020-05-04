@@ -28,6 +28,8 @@ export const ProjectList = {
       imgPc: TagALogPc,
       imgMobile: TagALogMobile,
       link: "https://Tag-A-Log.now.sh/",
+      client: "https://github.com/a1clark1a/Tag-A-Log-Client",
+      server: "https://github.com/a1clark1a/Tag-A-Log-API-Server",
       stack: [PostgreSQL, Js6, Express, ReactJs, node],
       description: `An information, bookmarks and log manager that allows users to store urls,
        code snippets or articles notes with appropriate description and "tag" 
@@ -38,6 +40,8 @@ export const ProjectList = {
       imgPc: MemegramPC,
       imgMobile: MemegramMobile,
       link: "https://memegram.now.sh/",
+      client: "https://github.com/a1clark1a/Memegram-Client",
+      server: "https://github.com/a1clark1a/Memegram-Server",
       stack: [PostgreSQL, Js6, Express, ReactJs, node],
       description: `An Image(Memes) browsing app where you can browse memes to your 
       hearts content and be filled with giggles! Or be a contributor
@@ -50,7 +54,7 @@ export const ProjectList = {
       name: "NearMe App",
       imgPc: NearMe,
       imgMobile: NearMeMobile,
-      repoLink: "https://github.com/a1clark1a/NearMe",
+      client: "https://github.com/a1clark1a/NearMe",
       link: "https://a1clark1a.github.io/NearMe/",
       stack: [jquery, Js6, html5, css, yelp],
       description: `
@@ -64,7 +68,7 @@ export const ProjectList = {
       name: "GameCollectionProject",
       imgPc: GameCollection,
       link: "https://a1clark1a.itch.io/game-collection-prototype",
-      repoLink: "https://github.com/a1clark1a/GameCollectionProject",
+      client: "https://github.com/a1clark1a/GameCollectionProject",
       stack: [sfml, cplusplus],
       description: `A Solo project to house all of my past SFML projects which allows user to play all SFML games I've worked on. 
         I implemented multiple programming techniques such as Class structure hierarchy to showcase 

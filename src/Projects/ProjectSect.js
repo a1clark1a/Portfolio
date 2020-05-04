@@ -42,6 +42,9 @@ const ProjectSect = () => {
           description={proj.description}
           position={position}
           stack={proj.stack}
+          client={proj.client}
+          server={proj.server}
+          renderedProject={renderedProject}
         />
       );
     });

@@ -11,6 +11,9 @@ const Project = ({
   description,
   position,
   stack = [],
+  client,
+  server,
+  renderedProject,
 }) => {
   const techStack = () => {
     return stack.map((tech, i) => {
@@ -21,7 +24,7 @@ const Project = ({
       );
     });
   };
-
+  console.log(server);
   return (
     <div className={`proj-body body-${position}`}>
       <h2 className={`proj-name name-${position}`}>{name}</h2>
@@ -47,6 +50,30 @@ const Project = ({
           )}
         </a>
         <div className="proj-summary">
+          {client && (
+            <div className="repo-tab">
+              <a
+                href={client}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button"
+              >
+                {renderedProject === "Web Project"
+                  ? `Client Repo`
+                  : `Github Repo`}
+              </a>
+              {server && (
+                <a
+                  href={server}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  Server Repo
+                </a>
+              )}
+            </div>
+          )}
           <div className="proj-stack-wrapper">{techStack()}</div>
           <p className="proj-desc">{description}</p>
         </div>

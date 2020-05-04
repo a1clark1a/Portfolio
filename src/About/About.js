@@ -35,7 +35,7 @@ export default function About() {
               <li>HTML5</li>
               <li>CSS3</li>
               <li>Javascript(ES6, JSX)</li>
-              <li>React.js(Router, Context)</li>
+              <li>React.js(Router, Context, Hooks)</li>
               <li>jQuery</li>
             </ul>
           </div>
@@ -48,6 +48,7 @@ export default function About() {
               <li>Postgres</li>
               <li>Express</li>
               <li>JWT</li>
+              <li>SQL(Knex)</li>
             </ul>
           </div>
           <div className="gamedev_list">
@@ -66,10 +67,11 @@ export default function About() {
             </h3>
             <ul>
               <li>Visual Studio/Code Ide</li>
-              <li>NPM</li>
+              <li>NPM/Yarn</li>
               <li>Postman</li>
               <li>REST API</li>
               <li>Chrome Dev Tools/Debugger</li>
+              <li>Mocha, Chai, Supertest, Jest, Enzyme</li>
             </ul>
           </div>
         </div>

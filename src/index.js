@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import "./fonts/Gelasio/Gelasio-Regular.ttf";
 
 import App from "./App";
 

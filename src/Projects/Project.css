@@ -63,11 +63,18 @@
   margin-bottom: 3rem;
 }
 
-@media screen and (max-width: 500px) {
-  .repo-tab {
-  }
-
+@media screen and (max-width: 1200px) {
   .repo-tab > .button {
+    display: block;
+    font-size: 1.2rem;
+    padding: 10px;
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .repo-tab > .button {
+    display: inline;
     font-size: 1.2rem;
     padding: 10px;
   }

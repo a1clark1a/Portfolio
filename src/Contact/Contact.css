@@ -27,6 +27,16 @@
   border-bottom: 3px solid #cc2b2b;
 }
 
+.link_wrapper > a:hover,
+a > img:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  transition: all 0.3s;
+}
+
 @media screen and (max-width: 600px) {
   .cont_icon {
     width: 50px;

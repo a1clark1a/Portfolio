@@ -16,7 +16,7 @@ const Project = ({
     return stack.map((tech, i) => {
       return (
         <div key={i} className="tech">
-          {tech}
+          <img src={tech} alt="logo" />
         </div>
       );
     });
@@ -38,11 +38,11 @@ const Project = ({
           ) : (
             <div className={`img-container ${position}`}>
               <img className="img-pc " src={imgPc} alt={name} />
-              <div>
-                {imgMobile && (
+              {imgMobile && (
+                <div>
                   <img className="img-mob" src={imgMobile} alt={name} />
-                )}
-              </div>
+                </div>
+              )}
             </div>
           )}
         </a>

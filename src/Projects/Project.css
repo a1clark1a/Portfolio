@@ -1,6 +1,3 @@
-.img-container {
-}
-
 .img-mob {
   margin-bottom: 10px;
 }
@@ -33,10 +30,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .tech {
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .body-right {
@@ -45,6 +46,10 @@
 
 .proj-name {
   margin: 2rem 0;
+}
+
+.tech > img {
+  width: 100px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -88,11 +93,13 @@
   .right {
     display: flex;
     flex-direction: row-reverse;
+    margin-left: 2rem;
   }
 
   .left {
     display: flex;
     flex-direction: row;
+    margin-right: 2rem;
   }
 
   .right > div {

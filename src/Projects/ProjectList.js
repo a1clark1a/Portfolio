@@ -50,7 +50,8 @@ export const ProjectList = {
       name: "NearMe App",
       imgPc: NearMe,
       imgMobile: NearMeMobile,
-      link: "https://github.com/a1clark1a/NearMe",
+      repoLink: "https://github.com/a1clark1a/NearMe",
+      link: "https://a1clark1a.github.io/NearMe/",
       stack: [jquery, Js6, html5, css, yelp],
       description: `
         Quickly find restaurants, parks, and businesses around with you with a click of a button.
@@ -62,7 +63,8 @@ export const ProjectList = {
     {
       name: "GameCollectionProject",
       imgPc: GameCollection,
-      link: "https://github.com/a1clark1a/GameCollectionProject",
+      link: "https://a1clark1a.itch.io/game-collection-prototype",
+      repoLink: "https://github.com/a1clark1a/GameCollectionProject",
       stack: [sfml, cplusplus],
       description: `A Solo project to house all of my past SFML projects which allows user to play all SFML games I've worked on. 
         I implemented multiple programming techniques such as Class structure hierarchy to showcase 

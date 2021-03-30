@@ -13,11 +13,11 @@ export default function About() {
           alt="Anthony Clark Perfecto Headshot"
         />
         <p className="description">
-          My name is Anthony Clark Perfecto, (I go by Clark but either is fine)
-          I am an aspiring full-stack web developer and game programmer with a
-          passion for implementing new systems and functionalities, optimizing
-          code bases, debugging and problem-solving with accuracy, and learning
-          new design patterns and programming paradigms.
+          My name is Clark Perfecto, I am a Full-Stack Web Developer and Game
+          Programmer with a passion for implementing new systems and
+          functionalities, optimizing code bases, debugging and problem-solving
+          with accuracy, and learning new design patterns and programming
+          paradigms.
         </p>
       </article>
       <Contact />

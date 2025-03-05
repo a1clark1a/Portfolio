@@ -1,13 +1,27 @@
-import React from "react";
-import Particles from "react-particles-js";
-import Params from "./particlesjs-config.json";
+import React, { useEffect, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
 import "./Main.css";
+import { options } from "./particlesjs-config";
 
 export default function Main() {
+  const [init, setInit] = useState(false);
+  // this should be run only once per application lifetime
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
   return (
     <section className="home_sect">
       <div className="info_wrapper">
-        <Particles params={Params} className="particles" />
+        {init && (
+          <Particles className="particles" id="tsparticles" options={options} />
+        )}
+        {/*  <Particles params={Params} className="particles" /> */}
         <h1 className="intro">
           Hey there! <span className="name">I'm Clark Perfecto</span>
         </h1>

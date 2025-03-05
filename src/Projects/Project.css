@@ -67,7 +67,7 @@
 .card {
   min-width: 300px;
   max-width: 510px;
-  min-height: 500px;
+  min-height: 400px;
   background: #393535;
   transition: all 0.4s;
   border-radius: 10px;
@@ -84,9 +84,11 @@
 }
 
 .jobTitle {
+  text-align: center;
   font-size: 30px;
   font-weight: 600;
   color: #9fbdc7;
+  margin-bottom: 20px;
 }
 
 .jobDescription {
@@ -95,9 +97,11 @@
 }
 
 .companyName {
+  text-align: center;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  padding-left: 20px;
 }
 
 .workDate {
@@ -124,6 +128,10 @@
   .cardTitleContainer {
     display: flex;
     flex-direction: column;
+  }
+
+  .workDate {
+    padding-left: 20px;
   }
 }
 

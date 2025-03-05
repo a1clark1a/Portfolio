@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import "./Main.css";
 import { options } from "./particlesjs-config";
+import "./Main.css";
 
 export default function Main() {
   const [init, setInit] = useState(false);
@@ -21,12 +21,11 @@ export default function Main() {
         {init && (
           <Particles className="particles" id="tsparticles" options={options} />
         )}
-        {/*  <Particles params={Params} className="particles" /> */}
         <h1 className="intro">
           Hey there! <span className="name">I'm Clark Perfecto</span>
         </h1>
         <h2 className="title">I'm a Software Engineer | Full Stack</h2>
-        <a className={`container}`} href="#about">
+        <a className="container" href="#about">
           <button className="button">
             <span>Get to know me </span>
           </button>

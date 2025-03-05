@@ -76,7 +76,7 @@ export const options = {
         quantity: 4,
       },
       remove: {
-        quantity: 2,
+        quantity: 3,
       },
     },
   },

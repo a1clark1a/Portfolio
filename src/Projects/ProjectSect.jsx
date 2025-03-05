@@ -11,7 +11,7 @@ const getWidth = () =>
   document.body.clientWidth;
 
 const ProjectSect = () => {
-  const [renderedProject, setRenderedProject] = useState("Web Project");
+  const [renderedProject, setRenderedProject] = useState("Experience");
   const [windowWidth, setWindowWidth] = useState(getWidth());
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const ProjectSect = () => {
 
   const displayProjects = () => {
     const showMobile = windowWidth < 1000 ? true : false;
+
     return ProjectList[renderedProject].map((proj, i) => {
       const position = i % 2 === 0 ? "left" : "right";
 
@@ -45,14 +46,22 @@ const ProjectSect = () => {
           client={proj.client}
           server={proj.server}
           renderedProject={renderedProject}
+          date={proj.date}
+          title={proj.title}
         />
       );
     });
   };
 
   return (
-    <section className="proj-sect" id="projects">
+    <section className="proj-sect" id="work">
       <div className="proj-tab">
+        <button
+          className="button"
+          onClick={() => setRenderedProject("Experience")}
+        >
+          <span> {windowWidth < 600 ? "Exp" : "Experience"}</span>
+        </button>
         <button
           className="button"
           onClick={() => setRenderedProject("Web Project")}
@@ -66,7 +75,11 @@ const ProjectSect = () => {
           <span>Game Dev</span>
         </button>
       </div>
-      <article className="proj-art">{displayProjects()}</article>
+      <article
+        className={renderedProject === "Experience" ? "exp-art" : "proj-art"}
+      >
+        {displayProjects()}
+      </article>
     </section>
   );
 };

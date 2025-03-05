@@ -11,9 +11,7 @@ export default function Main() {
         <h1 className="intro">
           Hey there! <span className="name">I'm Clark Perfecto</span>
         </h1>
-        <h2 className="title">
-          I'm a Full-Stack Developer and Game Programmer
-        </h2>
+        <h2 className="title">I'm a Software Engineer | Full Stack</h2>
         <a className={`container}`} href="#about">
           <button className="button">
             <span>Get to know me </span>

@@ -3,7 +3,7 @@ export const options = {
   name: "Link Triangles",
   particles: {
     number: {
-      value: 120,
+      value: 60,
       density: {
         enable: true,
       },

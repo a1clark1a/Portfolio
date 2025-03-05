@@ -9,6 +9,11 @@
   padding: 0 30px;
 }
 
+.exp-art {
+  display: flex;
+  justify-content: center;
+}
+
 .proj-tab .button {
   border-radius: 4px;
   background-color: #161616;
@@ -42,5 +47,11 @@
   color: #cc2b2b;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 1700px) {
+  .exp-art {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

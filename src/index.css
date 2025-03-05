@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  scroll-behavior: smooth;
+}
+
 html {
   scroll-behavior: smooth;
   font-family: "Gelasio";
@@ -20,6 +24,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  scroll-behavior: smooth;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

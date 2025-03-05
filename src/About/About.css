@@ -13,9 +13,17 @@ article {
 
 .pic_wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 100px 0 0 0;
+}
+
+.paragraphContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .about_sect {
@@ -50,9 +58,6 @@ article {
   width: 70px;
   padding-top: 20px;
   border-bottom: 2px solid #cc2b2b;
-}
-li {
-  list-style: none;
 }
 
 .skills ul {

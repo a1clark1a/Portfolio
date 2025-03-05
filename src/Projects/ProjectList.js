@@ -1,3 +1,4 @@
+import React from "react";
 import NearMe from "./images/computer icon- near me.png";
 import NearMeMobile from "./images/phone icon- near me.png";
 import GameCollection from "./images/GameCollectionjpg.jpg";
@@ -22,6 +23,96 @@ import unreal from "./images/unreal4.png";
 import sfml from "./images/SFML.png";
 
 export const ProjectList = {
+  Experience: [
+    {
+      name: "OneView Commerce",
+      title: "Software Development Engineer",
+      link: "https://www.oneviewcommerce.com/",
+      description: (
+        <ul>
+          <li>
+            Developed and enhanced user-facing features for the company's core
+            product, improving functionality and user experience.
+          </li>
+          <li>
+            Designed, implemented, and optimized Serverless CRUD API endpoints,
+            improving performance and maintainability.
+          </li>
+          <li>
+            Ensured 100% unit and integration testing with Jest, Enzyme and
+            Sonar Cloud.
+          </li>
+          <li>
+            Led the database migration from Cloudant to Firebase, ensuring data
+            integrity and seamless transition.
+          </li>
+          <li>
+            Provided developer support during deployments and releases,
+            troubleshooting issues and ensuring smooth rollouts
+          </li>
+          <li>
+            Contributed to workplace culture as part of the company's Culture
+            Committee, fostering team engagement and collaboration.
+          </li>
+        </ul>
+      ),
+      date: "May 2021 - Feb 2025",
+    },
+    {
+      name: "OnboardList",
+      title: "Software Engineer",
+      link: "https://www.onboardlist.com/",
+      description: (
+        <ul>
+          <li>
+            Improved application by encapsulating backend server configuration
+            and protecting confidential keys and secrets by pursuing proper
+            security standards.
+          </li>
+          <li>
+            Refactored REST-API Endpoints to improve user/account management and
+            secure stripe transactions.
+          </li>
+          <li>
+            Handles the migration, management and queries of the project's
+            PostgreSQL Database.
+          </li>
+          <li>
+            Implemented "Checklist" core feature to allow users to create and
+            manage their onboarding checklist.
+          </li>
+          <li>
+            Improved "Checklist" widget to no longer rely on jQuery
+            dependencies.
+          </li>
+          <li>
+            Led the integration of 3rd party APIs to work in accordance to the
+            project needs.
+          </li>
+        </ul>
+      ),
+      date: "July 2020 - May 2021",
+    },
+    {
+      name: "Dananza",
+      title: "Frontend Developer - Intern",
+      link: "https://www.linkedin.com/company/dananza/posts/?feedView=all",
+      description: (
+        <ul>
+          <li>
+            Created new UI components and applied it in creating new campaign
+            page series using React.js and Next.js.
+          </li>
+          <li>
+            Mentor meetings and stand-ups to document and assign/discuss tasks
+            in ClickUp/Microsoft Teams.
+          </li>
+        </ul>
+      ),
+      date: "March  2020 - April 2020",
+    },
+  ],
+
   "Web Project": [
     {
       name: "Tag-A-Log",

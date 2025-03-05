@@ -1,0 +1,28 @@
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px 100px;
+  list-style-type: disc;
+  padding: 0;
+  margin: 0;
+  text-align: justify;
+}
+
+@media screen and (max-width: 1000px) {
+  .skills-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .skills-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -20,7 +20,9 @@
   color: white;
 }
 
-.container {
+.container,
+.intro,
+.title {
   z-index: 100;
 }
 

@@ -31,20 +31,20 @@ export const ProjectList = {
       description: (
         <ul>
           <li>
-            Developed and enhanced user-facing features for the company's core
-            product, improving functionality and user experience.
+            Developed client-facing features(Omni Channel POS, Inventory
+            Management APP, CRM Dashboard)
           </li>
           <li>
-            Designed, implemented, and optimized Serverless CRUD API endpoints,
-            improving performance and maintainability.
+            Designed, implemented, and optimized Serverless microservice API
+            endpoints using RESTful architecture.
           </li>
           <li>
-            Ensured 100% unit and integration testing with Jest, Enzyme and
-            Sonar Cloud.
+            Ensured 100% unit and integration test coverage using Jest, Enzyme,
+            and SonarCloud to maintain code quality and system reliability.
           </li>
           <li>
-            Led the database migration from Cloudant to Firebase, ensuring data
-            integrity and seamless transition.
+            Led the database migration from Cloudant to Firebase/Firestore,
+            ensuring data integrity and seamless transition.
           </li>
           <li>
             Provided developer support during deployments and releases,

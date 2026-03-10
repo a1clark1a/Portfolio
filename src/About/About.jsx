@@ -1,19 +1,23 @@
-import React from "react";
 import "./About.css";
 import headshot from "./headshot.jpg";
 import Contact from "../Contact/Contact";
 import TechStack from "../TechStack/TechStack";
+import useFadeIn from "../hooks/useFadeIn";
 
 export default function About() {
+  const picRef = useFadeIn();
+  const bioRef = useFadeIn({ threshold: 0.2 });
+
   return (
-    <section className="about_sect" id="about">
-      <article className="pic_wrapper">
+    <section className="about-sect" id="about">
+      <article className="pic-wrapper">
         <img
+          ref={picRef}
           src={headshot}
-          className="prof_pic"
-          alt="Anthony Clark Perfecto Headshot"
+          className="prof-pic fade-in"
+          alt="Anthony Clark Perfecto headshot"
         />
-        <div className="paragraphContainer">
+        <div ref={bioRef} className="paragraph-container fade-in">
           <p className="description">
             I'm a passionate Software Engineer with professional experience in
             full-stack development, specializing in building scalable

@@ -1,60 +1,78 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import PropTypes from "prop-types";
 import icon from "./Hamburger_icon.svg.png";
 import "./Nav.css";
+
+const MOBILE_BREAKPOINT = 800;
 
 const getWidth = () =>
   window.innerWidth ||
   document.documentElement.clientWidth ||
   document.body.clientWidth;
 
+const NavLink = ({ href, label, onClick }) => (
+  <li role="none">
+    <a href={href} role="menuitem" onClick={onClick}>
+      {label}
+    </a>
+  </li>
+);
+
+NavLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
 const Nav = () => {
-  const [width, setWidth] = useState(getWidth());
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(getWidth() > MOBILE_BREAKPOINT);
+  const [isMobile, setIsMobile] = useState(getWidth() <= MOBILE_BREAKPOINT);
 
   useEffect(() => {
-    if (getWidth() > 800) {
-      setIsActive(true);
-    } else {
+    const handleResize = () => {
+      const width = getWidth();
+      const mobile = width <= MOBILE_BREAKPOINT;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setIsActive(true);
+      } else {
+        setIsActive(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleNav = useCallback(() => {
+    setIsActive((prev) => !prev);
+  }, []);
+
+  const handleLinkClick = useCallback(() => {
+    if (isMobile) {
       setIsActive(false);
     }
-    const handleWindowSize = () => {
-      setWidth(getWidth());
-    };
-
-    window.addEventListener("resize", handleWindowSize);
-    return () => {
-      window.removeEventListener("resize", handleWindowSize);
-    };
-  }, [width]);
-
-  const toggleNav = () => {
-    setIsActive(!isActive);
-  };
-
-  const renderNavbarLinks = (
-    <ul className="nav_bar-links">
-      <li>
-        <a href="#home">Home</a>
-      </li>
-      <li>
-        <a href="#about">About</a>
-      </li>
-      <li>
-        <a href="#work">Work</a>
-      </li>
-    </ul>
-  );
+  }, [isMobile]);
 
   return (
-    <nav className="nav_bar">
-      <img
-        src={icon}
-        alt="navbar icon"
+    <nav className="nav-bar" role="navigation" aria-label="Main navigation">
+      <button
+        type="button"
         className="toggle-button"
-        onClick={() => toggleNav()}
-      />
+        onClick={toggleNav}
+        aria-expanded={isActive}
+        aria-label="Toggle navigation menu"
+      >
+        <img src={icon} alt="" aria-hidden="true" />
+      </button>
 
-      {isActive && renderNavbarLinks}
+      {isActive && (
+        <ul className="nav-bar-links" role="menubar">
+          <NavLink href="#home" label="Home" onClick={handleLinkClick} />
+          <NavLink href="#about" label="About" onClick={handleLinkClick} />
+          <NavLink href="#work" label="Work" onClick={handleLinkClick} />
+        </ul>
+      )}
     </nav>
   );
 };

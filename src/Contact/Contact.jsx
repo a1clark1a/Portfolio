@@ -1,38 +1,39 @@
-import React from "react";
 import "./Contact.css";
 import linkedin from "./Images/linkedin.png";
 import Gmail_Icon from "./Images/Gmail_Icon.png";
 import github from "./Images/github.png";
+import useFadeIn from "../hooks/useFadeIn";
 
 export default function Contact() {
+  const ref = useFadeIn();
+
   return (
-    <section className="cont_sect" id="contact">
-      <h2 className="cont_h2">Let's get in touch. </h2>
-      <div className="link_wrapper">
+    <section ref={ref} className="cont-sect fade-in" id="contact">
+      <h2 className="cont-h2">Let's get in touch.</h2>
+      <div className="link-wrapper">
         <a
           href="https://www.linkedin.com/in/acperfecto/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit LinkedIn profile"
         >
-          <img className="cont_icon img" src={linkedin} alt="LinkedIn link" />
+          <img className="cont-icon" src={linkedin} alt="LinkedIn" />
         </a>
         <a
           href="mailto:a1clark1a@gmail.com?subject=Let's get in touch"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Send email"
         >
-          <img
-            className="cont_icon img"
-            src={Gmail_Icon}
-            alt="Send mail link"
-          />
+          <img className="cont-icon" src={Gmail_Icon} alt="Email" />
         </a>
         <a
           href="https://github.com/a1clark1a"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit GitHub profile"
         >
-          <img className="cont_icon img" src={github} alt="Github repo link" />
+          <img className="cont-icon" src={github} alt="GitHub" />
         </a>
       </div>
     </section>

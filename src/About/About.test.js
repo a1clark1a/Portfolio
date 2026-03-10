@@ -1,11 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { render, screen } from "@testing-library/react";
 import About from "./About";
 
-describe("Project Component", () => {
+describe("About Component", () => {
   it("renders without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<About />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<About />);
+  });
+
+  it("renders the headshot image with alt text", () => {
+    render(<About />);
+    expect(screen.getByAltText("Anthony Clark Perfecto headshot")).toBeInTheDocument();
+  });
+
+  it("renders the bio description", () => {
+    render(<About />);
+    expect(screen.getByText(/passionate Software Engineer/)).toBeInTheDocument();
+  });
+
+  it("renders the Contact section", () => {
+    render(<About />);
+    expect(screen.getByText(/Let's get in touch/)).toBeInTheDocument();
+  });
+
+  it("renders the TechStack section", () => {
+    render(<About />);
+    expect(screen.getByText("Technical Skills")).toBeInTheDocument();
   });
 });

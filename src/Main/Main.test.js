@@ -1,11 +1,38 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { render, screen } from "@testing-library/react";
 import Main from "./Main";
 
-describe("Project Component", () => {
+// Mock the particles library
+jest.mock("@tsparticles/react", () => ({
+  __esModule: true,
+  default: () => null,
+  initParticlesEngine: () => Promise.resolve(),
+}));
+jest.mock("@tsparticles/slim", () => ({
+  loadSlim: () => Promise.resolve(),
+}));
+
+describe("Main Component", () => {
   it("renders without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<Main />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<Main />);
+  });
+
+  it("renders the introduction heading", () => {
+    render(<Main />);
+    expect(screen.getByText(/I'm Clark Perfecto/)).toBeInTheDocument();
+  });
+
+  it("renders the title", () => {
+    render(<Main />);
+    expect(screen.getByText(/Software Engineer \| Full Stack/)).toBeInTheDocument();
+  });
+
+  it("renders the call-to-action button", () => {
+    render(<Main />);
+    expect(screen.getByText("Get to know me")).toBeInTheDocument();
+  });
+
+  it("has an accessible section label", () => {
+    render(<Main />);
+    expect(screen.getByLabelText("Introduction")).toBeInTheDocument();
   });
 });

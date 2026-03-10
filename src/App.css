@@ -1,13 +1,29 @@
 body {
   margin: 0;
-  font-family: "Gelasio", serif;
+  font-family: var(--font-heading);
+}
+
+/* Skip to content link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 footer {
   text-align: center;
   padding: 10px 0 20px 0;
-  border-top: 2px solid #cc2b2b;
-  background-color: #181818;
+  border-top: 2px solid var(--color-primary);
+  background-color: var(--color-bg-dark);
 }
 
 a,
@@ -19,12 +35,12 @@ button {
 
 a:hover,
 .button:hover {
-  color: #cc2b2b;
+  color: var(--color-primary);
 }
 
 code {
-  font-family: "Lato";
-  color: #ffffff;
+  font-family: var(--font-body);
+  color: var(--color-text-light);
 }
 
 h1 {
@@ -41,5 +57,5 @@ h3 {
 
 p {
   font-size: 1.2rem;
-  font-family: "Lato";
+  font-family: var(--font-body);
 }

@@ -1,17 +1,17 @@
-.prof_pic {
+.prof-pic {
   border: 1px solid white;
   border-radius: 50%;
   width: 205px;
   height: 265px;
   object-fit: contain;
-  margin: 0 10px 0 10px;
+  margin: 0 10px;
 }
 
 article {
   padding-bottom: 50px;
 }
 
-.pic_wrapper {
+.pic-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,45 +19,45 @@ article {
   padding: 100px 0 0 0;
 }
 
-.paragraphContainer {
+.paragraph-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.about_sect {
+.about-sect {
   text-align: center;
-  background-color: #181818;
-  color: whitesmoke;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-muted);
   padding: 0 2rem;
 }
 
-.about_sect h2 {
+.about-sect h2 {
   padding-bottom: 20px;
 }
 
-.skill-header:after {
+.skill-header::after {
   content: "";
   display: block;
   margin: auto;
   width: 50%;
   padding-top: 20px;
-  border-bottom: 3px solid #cc2b2b;
+  border-bottom: 3px solid var(--color-primary);
 }
 
-.about_sect h3 {
-  color: whitesmoke;
+.about-sect h3 {
+  color: var(--color-text-muted);
   padding-bottom: 10px;
 }
 
-.about_sect h3:after {
+.about-sect h3::after {
   content: "";
   display: block;
   margin: auto;
   width: 70px;
   padding-top: 20px;
-  border-bottom: 2px solid #cc2b2b;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .skills ul {
@@ -75,7 +75,7 @@ article {
   }
 
   .skills > div {
-    margin: 0 10px 0 10px;
+    margin: 0 10px;
   }
 
   .description {
@@ -85,13 +85,13 @@ article {
   }
 }
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
   .description {
     margin-top: 50px;
     font-size: 20px;
   }
 
-  .pic_wrapper {
+  .pic-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;

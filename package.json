@@ -15,7 +15,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "predeploy": "npm run build",
-    "deploy": "vercel --prod ./build"
+    "deploy": "vercel --prod ./dist"
   },
   "browserslist": {
     "production": [

@@ -2,12 +2,12 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 
 // Mock the particles library to avoid initialization in tests
-jest.mock("@tsparticles/react", () => ({
+vi.mock("@tsparticles/react", () => ({
   __esModule: true,
   default: () => null,
   initParticlesEngine: () => Promise.resolve(),
 }));
-jest.mock("@tsparticles/slim", () => ({
+vi.mock("@tsparticles/slim", () => ({
   loadSlim: () => Promise.resolve(),
 }));
 

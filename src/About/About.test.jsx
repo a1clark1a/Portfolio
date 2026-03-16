@@ -13,7 +13,7 @@ describe("About Component", () => {
 
   it("renders the bio description", () => {
     render(<About />);
-    expect(screen.getByText(/passionate Software Engineer/)).toBeInTheDocument();
+    expect(screen.getByText(/Full Stack Engineer with 5\+ years/)).toBeInTheDocument();
   });
 
   it("renders the Contact section", () => {

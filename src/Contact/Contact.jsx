@@ -3,6 +3,7 @@ import linkedin from "./Images/linkedin.png";
 import Gmail_Icon from "./Images/Gmail_Icon.png";
 import github from "./Images/github.png";
 import useFadeIn from "../hooks/useFadeIn";
+import Tooltip from "../components/Tooltip";
 
 export default function Contact() {
   const ref = useFadeIn();
@@ -17,7 +18,9 @@ export default function Contact() {
           rel="noopener noreferrer"
           aria-label="Visit LinkedIn profile"
         >
-          <img className="cont-icon" src={linkedin} alt="LinkedIn" />
+          <Tooltip label="LinkedIn: www.linkedin.com/in/acperfecto/">
+            <img className="cont-icon" src={linkedin} alt="LinkedIn" />
+          </Tooltip>
         </a>
         <a
           href="mailto:a1clark1a@gmail.com?subject=Let's get in touch"
@@ -25,7 +28,9 @@ export default function Contact() {
           rel="noopener noreferrer"
           aria-label="Send email"
         >
-          <img className="cont-icon" src={Gmail_Icon} alt="Email" />
+          <Tooltip label="Email: a1clark1a@gmail.com">
+            <img className="cont-icon" src={Gmail_Icon} alt="Email" />
+          </Tooltip>
         </a>
         <a
           href="https://github.com/a1clark1a"
@@ -33,7 +38,9 @@ export default function Contact() {
           rel="noopener noreferrer"
           aria-label="Visit GitHub profile"
         >
-          <img className="cont-icon" src={github} alt="GitHub" />
+          <Tooltip label="GitHub: github.com/a1clark1a">
+            <img className="cont-icon" src={github} alt="GitHub" />
+          </Tooltip>
         </a>
       </div>
     </section>

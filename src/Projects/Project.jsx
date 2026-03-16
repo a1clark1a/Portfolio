@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import Tooltip from "../components/Tooltip";
 import "./Project.css";
 
 const Project = ({
@@ -19,34 +20,54 @@ const Project = ({
   const techStack = () =>
     stack.map((tech, i) => (
       <div key={i} className="tech">
-        <img src={tech} alt={`${name} tech stack`} />
+        <Tooltip label={tech.name}>
+          {tech.type === "devicon" ? (
+            <i className={tech.class}></i>
+          ) : (
+            <img src={tech.src} alt={tech.name} />
+          )}
+        </Tooltip>
       </div>
     ));
+
+  const imageTooltip = link
+    ? link
+    : "In active development — coming soon!";
+
+  const ImageWrapper = link
+    ? ({ children }) => (
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      )
+    : ({ children }) => <div className="proj-img-inactive">{children}</div>;
 
   const RenderProjects = () => (
     <div className={`proj-body body-${position}`}>
       <h2 className={`proj-name name-${position}`}>{name}</h2>
       <div className={`proj-wrapper wrapper-${position}`}>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          {showMobile ? (
-            <div>
-              {imgMobile ? (
-                <img className="img-mob" src={imgMobile} alt={`${name} mobile screenshot`} />
-              ) : (
-                <img className="img-pc mobile-img" src={imgPc} alt={`${name} screenshot`} />
-              )}
-            </div>
-          ) : (
-            <div className={`img-container ${position}`}>
-              <img className="img-pc" src={imgPc} alt={`${name} desktop screenshot`} />
-              {imgMobile && (
-                <div>
+        <Tooltip label={imageTooltip} position="top">
+          <ImageWrapper>
+            {showMobile ? (
+              <div>
+                {imgMobile ? (
                   <img className="img-mob" src={imgMobile} alt={`${name} mobile screenshot`} />
-                </div>
-              )}
-            </div>
-          )}
-        </a>
+                ) : (
+                  <img className="img-pc mobile-img" src={imgPc} alt={`${name} screenshot`} />
+                )}
+              </div>
+            ) : (
+              <div className={`img-container ${position}`}>
+                <img className="img-pc" src={imgPc} alt={`${name} desktop screenshot`} />
+                {imgMobile && (
+                  <div>
+                    <img className="img-mob" src={imgMobile} alt={`${name} mobile screenshot`} />
+                  </div>
+                )}
+              </div>
+            )}
+          </ImageWrapper>
+        </Tooltip>
 
         <div className="proj-summary">
           {client && (
@@ -106,7 +127,14 @@ Project.propTypes = {
   link: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   position: PropTypes.oneOf(["left", "right"]),
-  stack: PropTypes.arrayOf(PropTypes.string),
+  stack: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(["devicon", "img"]).isRequired,
+      class: PropTypes.string,
+      src: PropTypes.string,
+      name: PropTypes.string.isRequired,
+    })
+  ),
   client: PropTypes.string,
   server: PropTypes.string,
   renderedProject: PropTypes.string.isRequired,

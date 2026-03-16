@@ -19,13 +19,13 @@ export default function About() {
         />
         <div ref={bioRef} className="paragraph-container fade-in">
           <p className="description">
-            I'm a passionate Software Engineer with professional experience in
-            full-stack development, specializing in building scalable
-            applications, optimizing backend systems, and integrating cloud
-            technologies. A quick learner and strong collaborator, I thrive in
-            team environments, leveraging TypeScript/JavaScript, React, Node.js,
-            AWS, and Firebase/Firestore to develop efficient, high-performance
-            solutions.
+            Full Stack Engineer with 5+ years of experience developing
+            cross-platform applications using Android, iOS, and Web platforms
+            with React, React Native, Expo, and TypeScript. Experienced in cloud
+            architecture using AWS serverless microservices and Firebase.
+            Hands-on experience migrating databases and developing offline-first
+            sync systems. Strong focus on code quality through extensive
+            testing.
           </p>
 
           <p className="description">

@@ -1,0 +1,46 @@
+.tooltip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  background-color: var(--color-bg-darker);
+  padding: 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(204, 43, 43, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.25s ease-out;
+  z-index: 10;
+}
+
+.tooltip:hover::after,
+.tooltip:focus-within::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Top-positioned variant for large elements like project images */
+.tooltip--top::after {
+  bottom: auto;
+  top: -36px;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.tooltip--top:hover::after,
+.tooltip--top:focus-within::after {
+  transform: translateX(-50%) translateY(0);
+}

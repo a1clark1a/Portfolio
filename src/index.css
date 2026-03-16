@@ -60,6 +60,7 @@ code {
   cursor: pointer;
   margin: 10px 5px;
   box-shadow: 0 9px var(--color-shadow);
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 .button span {
@@ -67,6 +68,11 @@ code {
   display: inline-block;
   position: relative;
   transition: 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px var(--color-shadow), 0 0 12px rgba(204, 43, 43, 0.25);
 }
 
 .button:active {

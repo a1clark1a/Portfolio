@@ -1,5 +1,5 @@
 import "./TechStack.css";
-import { skillList } from "../data/skills";
+import { skillCategories } from "../data/skills";
 import useFadeIn from "../hooks/useFadeIn";
 
 const TechStack = () => {
@@ -10,11 +10,20 @@ const TechStack = () => {
       <h2 className="skill-header">
         <code>{"< "}</code>Technical Skills<code>{" >"}</code>
       </h2>
-      <ul className="skills-list" aria-label="Technical skills">
-        {skillList.map((skill) => (
-          <li key={skill}>{skill}</li>
+      <div className="skills-grid" aria-label="Technical skills">
+        {skillCategories.map(({ category, skills }) => (
+          <div key={category} className="skill-category">
+            <h3 className="category-title">{category}</h3>
+            <ul className="skill-badges">
+              {skills.map((skill) => (
+                <li key={skill} className="badge">
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+      </div>
     </article>
   );
 };

@@ -237,7 +237,7 @@ export const ProjectList = {
         img(sfml, "SFML"),
         devicon("devicon-cplusplus-plain colored", "C++"),
       ],
-      description: `A Solo project to house all of my past SFML projects which allows user to play all SFML games I've worked on.
+      description: `A capstone project to house all of my past SFML projects which allows user to play all SFML games I've worked on.
         I implemented multiple programming techniques such as Class structure hierarchy to showcase
         Object-Oriented Programming principles, pointers for some Dynamic Memory Allocation,
          Enum States for AI behaviors and also some 2d Math in form of vectors and trigonometry.`,
@@ -248,7 +248,7 @@ export const ProjectList = {
       link: "https://a1clark1a.itch.io/shadowbot",
       stack: [devicon("devicon-unrealengine-original", "Unreal Engine")],
       description: `Shadowbot is a 2d-Sidescroller shooter game made in Unreal 4 using Blueprints.
-       A solo project I made for a class which I continued to work on and improve.
+       A capstone project I made for a class which I continued to work on and improve.
         Shadowbot is still in its prototype stage and currently contains 1 level but
         the game is playable with majority of the game mechanics and player functionality already implemented.`,
     },

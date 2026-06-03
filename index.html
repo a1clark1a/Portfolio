@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
@@ -18,6 +18,22 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <title>Clark Perfecto | Software Engineer</title>
+    <!-- Set the theme before paint to avoid a flash of the wrong mode -->
+    <script>
+      (function () {
+        try {
+          // Saved choice wins; otherwise follow the OS color scheme.
+          var t =
+            localStorage.getItem("theme") ||
+            (window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark");
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

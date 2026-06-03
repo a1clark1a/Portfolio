@@ -6,116 +6,118 @@ const Project = ({
   name,
   imgPc,
   imgMobile,
-  showMobile,
   link,
   description,
-  position,
   stack = [],
   client,
   server,
   renderedProject,
   date,
   title,
+  subtitle,
+  bullets = [],
+  tools,
 }) => {
-  const techStack = () =>
-    stack.map((tech, i) => (
-      <div key={i} className="tech">
-        <Tooltip label={tech.name}>
-          {tech.type === "devicon" ? (
-            <i className={tech.class}></i>
-          ) : (
-            <img src={tech.src} alt={tech.name} />
-          )}
-        </Tooltip>
+  const hasMobile = Boolean(imgMobile);
+  const repoLabel =
+    renderedProject === "Web Project" ? "Client Repo" : "Github Repo";
+
+  const RenderExperienceCard = () => (
+    <div className="card exp-card">
+      <div className="exp-head">
+        <span className="ico" aria-hidden="true">
+          ▮
+        </span>
+        {link ? (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <h3>{name}</h3>
+          </a>
+        ) : (
+          <h3>{name}</h3>
+        )}
       </div>
-    ));
-
-  const imageTooltip = link
-    ? link
-    : "In active development — coming soon!";
-
-  const ImageWrapper = link
-    ? ({ children }) => (
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          {children}
-        </a>
-      )
-    : ({ children }) => <div className="proj-img-inactive">{children}</div>;
-
-  const RenderProjects = () => (
-    <div className={`proj-body body-${position}`}>
-      <h2 className={`proj-name name-${position}`}>{name}</h2>
-      <div className={`proj-wrapper wrapper-${position}`}>
-        <Tooltip label={imageTooltip} position="top">
-          <ImageWrapper>
-            {showMobile ? (
-              <div>
-                {imgMobile ? (
-                  <img className="img-mob" src={imgMobile} alt={`${name} mobile screenshot`} />
-                ) : (
-                  <img className="img-pc mobile-img" src={imgPc} alt={`${name} screenshot`} />
-                )}
-              </div>
-            ) : (
-              <div className={`img-container ${position}`}>
-                <img className="img-pc" src={imgPc} alt={`${name} desktop screenshot`} />
-                {imgMobile && (
-                  <div>
-                    <img className="img-mob" src={imgMobile} alt={`${name} mobile screenshot`} />
-                  </div>
-                )}
-              </div>
-            )}
-          </ImageWrapper>
-        </Tooltip>
-
-        <div className="proj-summary">
-          {client && (
-            <div className="repo-tab">
-              <a
-                href={client}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button"
-              >
-                {renderedProject === "Web Project" ? "Client Repo" : "Github Repo"}
-              </a>
-              {server && (
-                <a
-                  href={server}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button"
-                >
-                  Server Repo
-                </a>
-              )}
-            </div>
-          )}
-          <div className="proj-stack-wrapper">{techStack()}</div>
-          <p className="proj-desc">{description}</p>
-        </div>
+      {subtitle && <p className="exp-sub">{subtitle}</p>}
+      <div className="exp-role">
+        <span className="role">{title}</span>
+        <span className="date">{date}</span>
       </div>
+      {bullets.length > 0 && (
+        <ul className="exp-bullets">
+          {bullets.map((bullet, i) => (
+            <li key={i}>{bullet}</li>
+          ))}
+        </ul>
+      )}
+      {tools && (
+        <p className="exp-tools">
+          <b>Tools &amp; Tech:</b> {tools}
+        </p>
+      )}
     </div>
   );
 
-  const RenderExperienceCards = () => (
-    <div className={`card card-${name}`}>
-      <div className="cardTitleContainer">
-        <div className="jobTitle">{title}</div>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <span className="companyName">{name}</span>
-        </a>
-        <span className="workDate"> - {date}</span>
+  const RenderProjectCard = () => (
+    <article className="card proj-card">
+      <div className={`proj-media${hasMobile ? "" : " single"}`}>
+        <img
+          className="proj-desktop"
+          src={imgPc}
+          alt={`${name} desktop screenshot`}
+        />
+        {hasMobile && (
+          <img
+            className="proj-phone"
+            src={imgMobile}
+            alt={`${name} mobile screenshot`}
+          />
+        )}
       </div>
-      <div className="jobDescription">{description}</div>
-    </div>
+
+      <div className="proj-body">
+        <h3>{name}</h3>
+        <p className="proj-desc">{description}</p>
+
+        {stack.length > 0 && (
+          <div className="proj-tech">
+            {stack.map((tech, i) => (
+              <Tooltip key={i} label={tech.name}>
+                {tech.type === "devicon" ? (
+                  <i className={tech.class} aria-hidden="true"></i>
+                ) : (
+                  <img src={tech.src} alt={tech.name} />
+                )}
+              </Tooltip>
+            ))}
+          </div>
+        )}
+
+        <div className="proj-links">
+          {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              Live ↗
+            </a>
+          ) : (
+            <span className="proj-indev">In development →</span>
+          )}
+          {client && (
+            <a href={client} target="_blank" rel="noopener noreferrer">
+              {repoLabel}
+            </a>
+          )}
+          {server && (
+            <a href={server} target="_blank" rel="noopener noreferrer">
+              Server Repo
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
   );
 
   return renderedProject === "Experience" ? (
-    <RenderExperienceCards />
+    <RenderExperienceCard />
   ) : (
-    <RenderProjects />
+    <RenderProjectCard />
   );
 };
 
@@ -123,10 +125,8 @@ Project.propTypes = {
   name: PropTypes.string.isRequired,
   imgPc: PropTypes.string,
   imgMobile: PropTypes.string,
-  showMobile: PropTypes.bool,
   link: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  position: PropTypes.oneOf(["left", "right"]),
   stack: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.oneOf(["devicon", "img"]).isRequired,
@@ -140,6 +140,11 @@ Project.propTypes = {
   renderedProject: PropTypes.string.isRequired,
   date: PropTypes.string,
   title: PropTypes.string,
+  subtitle: PropTypes.string,
+  bullets: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+  ),
+  tools: PropTypes.string,
 };
 
 export default Project;

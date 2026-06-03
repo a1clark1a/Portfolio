@@ -59,6 +59,7 @@ export const skillCategories = [
     skills: [
       "Jest",
       "React Testing Library",
+      "Playwright",
       "Supertest",
       "Mocha",
       "Chai",

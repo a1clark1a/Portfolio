@@ -1,11 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-// Mock the particles library to avoid initialization in tests
-vi.mock("@tsparticles/react", () => ({
-  __esModule: true,
-  default: () => null,
-  initParticlesEngine: () => Promise.resolve(),
+// Mock the particles engine to avoid initialization in tests
+// (Main drives tsParticles.load() directly).
+vi.mock("@tsparticles/engine", () => ({
+  tsParticles: { load: () => Promise.resolve({ destroy: () => {} }) },
 }));
 vi.mock("@tsparticles/slim", () => ({
   loadSlim: () => Promise.resolve(),
@@ -35,6 +34,7 @@ describe("App Component", () => {
   it("renders main sections", () => {
     render(<App />);
     expect(screen.getByText(/I'm Clark Perfecto/)).toBeInTheDocument();
+    expect(screen.getByText("Technical Skills")).toBeInTheDocument();
     expect(screen.getByText(/Let's get in touch/)).toBeInTheDocument();
   });
 });

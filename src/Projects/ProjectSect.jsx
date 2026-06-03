@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Project from "./Project";
 import { ProjectList } from "./ProjectList";
+import Reveal from "../components/Reveal";
 import useFadeIn from "../hooks/useFadeIn";
 import "./ProjectSect.css";
 
-const MOBILE_BREAKPOINT = 1000;
 const COMPACT_BREAKPOINT = 600;
 
 const getWidth = () =>
@@ -21,70 +21,61 @@ const PROJECT_TABS = [
 const ProjectSect = () => {
   const [renderedProject, setRenderedProject] = useState("Experience");
   const [windowWidth, setWindowWidth] = useState(getWidth());
+  const headRef = useFadeIn({ threshold: 0.15 });
 
   useEffect(() => {
-    const resizeListener = () => {
-      setWindowWidth(getWidth());
-    };
-
+    const resizeListener = () => setWindowWidth(getWidth());
     window.addEventListener("resize", resizeListener);
     return () => window.removeEventListener("resize", resizeListener);
   }, []);
 
-  const showMobile = windowWidth < MOBILE_BREAKPOINT;
   const isCompact = windowWidth < COMPACT_BREAKPOINT;
-  const tabRef = useFadeIn();
 
   return (
-    <section className="proj-sect" id="work">
-      <div ref={tabRef} className="proj-tab fade-in" role="tablist" aria-label="Project categories">
-        {PROJECT_TABS.map(({ key, label, compactLabel }) => (
-          <button
-            key={key}
-            className="button"
-            role="tab"
-            aria-selected={renderedProject === key}
-            aria-controls={`tabpanel-${key}`}
-            onClick={() => setRenderedProject(key)}
-          >
-            <span>{isCompact ? compactLabel : label}</span>
-          </button>
-        ))}
-      </div>
+    <section className="proj-sect section" id="work">
+      <div className="wrap">
+        <div ref={headRef} className="fade-in">
+          <p className="eyebrow">03 — Work</p>
+          <h2 className="spine-h">Experience &amp; Projects</h2>
+        </div>
 
-      {PROJECT_TABS.map(({ key }) => {
-        const isActive = renderedProject === key;
-        return (
-          <article
-            key={key}
-            id={`tabpanel-${key}`}
-            className={`tab-panel ${isActive ? "tab-panel--active" : ""} ${
-              key === "Experience" ? "exp-art" : "proj-art"
-            }`}
-            role="tabpanel"
-            aria-hidden={!isActive}
-          >
-            {ProjectList[key].map((proj, i) => (
-              <Project
-                key={proj.name}
-                name={proj.name}
-                imgPc={proj.imgPc}
-                imgMobile={proj.imgMobile}
-                showMobile={showMobile}
-                link={proj.link}
-                description={proj.description}
-                position={i % 2 === 0 ? "left" : "right"}
-                stack={proj.stack}
-                client={proj.client}
-                server={proj.server}
-                renderedProject={key}
-                date={proj.date}
-                title={proj.title}
-              />
-            ))}
-          </article>
-        );
-      })}
+        <div className="proj-tab" role="tablist" aria-label="Project categories">
+          {PROJECT_TABS.map(({ key, label, compactLabel }) => (
+            <button
+              key={key}
+              className="tab"
+              role="tab"
+              aria-selected={renderedProject === key}
+              aria-controls={`tabpanel-${key}`}
+              onClick={() => setRenderedProject(key)}
+            >
+              {isCompact ? compactLabel : label}
+            </button>
+          ))}
+        </div>
+
+        {PROJECT_TABS.map(({ key }) => {
+          const isActive = renderedProject === key;
+          const isExperience = key === "Experience";
+          return (
+            <div
+              key={key}
+              id={`tabpanel-${key}`}
+              className={`tab-panel ${isActive ? "tab-panel--active" : ""} ${
+                isExperience ? "exp-list" : "proj-grid"
+              }`}
+              role="tabpanel"
+              aria-hidden={!isActive}
+            >
+              {ProjectList[key].map((proj, i) => (
+                <Reveal key={proj.name} index={i} className="proj-reveal">
+                  <Project {...proj} renderedProject={key} />
+                </Reveal>
+              ))}
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };

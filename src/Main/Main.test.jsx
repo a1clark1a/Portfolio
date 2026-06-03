@@ -1,11 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import Main from "./Main";
 
-// Mock the particles library
-vi.mock("@tsparticles/react", () => ({
-  __esModule: true,
-  default: () => null,
-  initParticlesEngine: () => Promise.resolve(),
+// Mock the particles engine — Main drives tsParticles.load() directly.
+vi.mock("@tsparticles/engine", () => ({
+  tsParticles: { load: () => Promise.resolve({ destroy: () => {} }) },
 }));
 vi.mock("@tsparticles/slim", () => ({
   loadSlim: () => Promise.resolve(),
@@ -21,9 +19,16 @@ describe("Main Component", () => {
     expect(screen.getByText(/I'm Clark Perfecto/)).toBeInTheDocument();
   });
 
-  it("renders the title", () => {
+  it("renders the eyebrow label", () => {
     render(<Main />);
-    expect(screen.getByText(/Software Engineer \| Full Stack/)).toBeInTheDocument();
+    expect(screen.getByText("Software Engineer · Full Stack")).toBeInTheDocument();
+  });
+
+  it("renders the headshot moved into the hero", () => {
+    render(<Main />);
+    expect(
+      screen.getByAltText("Anthony Clark Perfecto headshot")
+    ).toBeInTheDocument();
   });
 
   it("renders the call-to-action button", () => {

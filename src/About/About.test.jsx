@@ -6,23 +6,21 @@ describe("About Component", () => {
     render(<About />);
   });
 
-  it("renders the headshot image with alt text", () => {
+  it("renders the section heading", () => {
     render(<About />);
-    expect(screen.getByAltText("Anthony Clark Perfecto headshot")).toBeInTheDocument();
+    expect(screen.getByText("About me")).toBeInTheDocument();
   });
 
-  it("renders the bio description", () => {
+  it("renders the standfirst lead", () => {
     render(<About />);
-    expect(screen.getByText(/Full Stack Engineer with 5\+ years/)).toBeInTheDocument();
+    expect(screen.getByText(/hold up when the network/)).toBeInTheDocument();
   });
 
-  it("renders the Contact section", () => {
+  it("renders the four stat statements", () => {
     render(<About />);
-    expect(screen.getByText(/Let's get in touch/)).toBeInTheDocument();
-  });
-
-  it("renders the TechStack section", () => {
-    render(<About />);
-    expect(screen.getByText("Technical Skills")).toBeInTheDocument();
+    expect(screen.getByText(/50\+ Molton Brown stores/)).toBeInTheDocument();
+    expect(screen.getByText(/100\+ Kroger drivers/)).toBeInTheDocument();
+    expect(screen.getByText(/1M\+ records/)).toBeInTheDocument();
+    expect(screen.getByText(/test coverage/)).toBeInTheDocument();
   });
 });

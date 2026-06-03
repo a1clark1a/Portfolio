@@ -3,84 +3,184 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
-  background-color: black;
+  z-index: 50;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--color-primary);
-  padding: 5px 0;
+  transition: background-color 0.3s ease;
 }
 
-.nav-bar-links {
-  margin: 0 10px;
-  padding: 0;
+.nav-inner {
   display: flex;
-  justify-content: center;
   align-items: center;
-  list-style: none;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0.6rem var(--content-pad);
 }
 
-.nav-bar-links li a {
-  text-decoration: none;
-  padding: 1rem;
-  margin: 0 20px;
-  font-size: 1.5rem;
-  color: white;
+/* logo pushes everything else to the right */
+.logo {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  transition: text-shadow 0.2s, letter-spacing 0.2s;
 }
 
-.toggle-button {
-  display: none;
-  margin: 10px 5px 5px 5px;
-  background: none;
-  border: none;
-  padding: 0;
+.logo .logo-lab {
+  color: var(--color-text-light);
+}
+
+.logo .logo-caret {
+  width: 9px;
+  height: 1.05em;
+  margin-left: 3px;
+  background: var(--color-primary);
+  display: inline-block;
+  transform: translateY(2px);
+  animation: caret-blink 1.05s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.logo:hover {
+  text-shadow: 0 0 10px var(--glow);
+  letter-spacing: 2px;
+  color: var(--color-primary);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* ---------- theme toggle ---------- */
+.theme-toggle {
+  width: var(--tap-target);
+  height: var(--tap-target);
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+  line-height: 1;
   cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-.toggle-button img {
-  width: 30px;
-  height: 21px;
+.theme-toggle:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
-.toggle-button:focus-visible {
+.theme-toggle:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
-/* Tag animation */
+/* ---------- links ---------- */
+/* Base (mobile): stacked, full-width column menu */
+.nav-bar-links {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  list-style: none;
+}
+
 .nav-bar-links li {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-  padding: 10px;
   position: relative;
-  z-index: 0;
+  width: 100%;
   cursor: pointer;
 }
 
+/* 44px hit area on the ANCHOR (the clickable element), so the whole row is tappable */
+.nav-bar-links li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: 0.5rem 0.9rem;
+  font-size: 1.05rem;
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+/* < > bracket hover motif */
 .nav-bar-links li::before,
 .nav-bar-links li::after {
   position: absolute;
+  top: 50%;
   opacity: 0;
-  font-size: 35px;
-  top: 0;
-  transition: all 0.3s;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  transform: translateY(-50%);
+  transition: all 0.25s;
 }
 
 .nav-bar-links li::before {
   content: "<";
-  left: 0;
-  transform: translateX(10px);
+  left: -2px;
 }
 
 .nav-bar-links li::after {
   content: ">";
-  right: 0;
-  transform: translateX(-10px);
+  right: -2px;
 }
 
-.nav-bar-links li:hover::before,
+.nav-bar-links li:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(-6px);
+}
+
 .nav-bar-links li:hover::after {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(-50%) translateX(6px);
+}
+
+.nav-bar-links li:hover a {
+  color: var(--color-primary);
+}
+
+/* red scroll-spy underline on the active link */
+.nav-bar-links li a::after {
+  content: "";
+  position: absolute;
+  /* mobile column: a short contained accent rather than a full-row divider */
+  left: 0.9rem;
+  right: auto;
+  width: 2rem;
+  bottom: -4px;
+  height: 2px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-bar-links li.is-active a {
+  color: var(--color-primary);
+}
+
+.nav-bar-links li.is-active a::after {
+  transform: scaleX(1);
 }
 
 .nav-bar-links li a:focus-visible {
@@ -88,17 +188,119 @@
   outline-offset: 2px;
 }
 
-@media screen and (max-width: 800px) {
+/* ---------- hamburger ---------- */
+/* Base (mobile): hamburger visible with a real 44px hit area; hidden at desktop */
+.toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* CSS-drawn hamburger that morphs into a close X when the menu is open */
+.hamburger {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 16px;
+}
+
+.hamburger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-text-light);
+  transition: transform 0.3s ease, opacity 0.2s ease, background 0.2s ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+.hamburger span:nth-child(2) {
+  top: 7px;
+}
+.hamburger span:nth-child(3) {
+  top: 14px;
+}
+
+/* Only shift color on true hover devices — on touchscreens a tap applies a
+   sticky :hover that would leave the bars stuck red after toggling the menu. */
+@media (hover: hover) {
+  .toggle-button:hover .hamburger span {
+    background: var(--color-primary);
+  }
+}
+
+/* open state: top + bottom lines converge and rotate into an X, middle fades */
+.toggle-button.is-open .hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.toggle-button.is-open .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.toggle-button.is-open .hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.toggle-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* >=md: horizontal nav row — hide the hamburger, links inline left of the toggle */
+@media screen and (min-width: 800px) {
   .toggle-button {
-    display: flex;
+    display: none;
   }
 
   .nav-bar-links {
-    flex-direction: column;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0;
+    order: 1;
+  }
+
+  .theme-toggle {
+    order: 2;
   }
 
   .nav-bar-links li {
-    text-align: center;
-    padding: 5px;
+    width: auto;
+  }
+
+  .nav-bar-links li a {
+    display: inline-flex;
+    width: auto;
+    min-height: auto;
+    padding: 0.4rem 0.9rem;
+  }
+
+  /* restore the full-width centered scroll-spy underline on the desktop row */
+  .nav-bar-links li a::after {
+    left: 0;
+    right: 0;
+    width: auto;
+    transform-origin: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo .logo-caret {
+    animation: none;
+  }
+  .nav-bar-links li a::after {
+    transition: none;
+  }
+  .hamburger span {
+    transition: none;
   }
 }

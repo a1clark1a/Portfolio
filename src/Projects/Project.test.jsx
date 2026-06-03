@@ -4,11 +4,12 @@ import Project from "./Project";
 const experienceProps = {
   name: "Test Company",
   link: "https://example.com",
-  description: "Test description content",
+  subtitle: "A test company subtitle",
+  bullets: ["Test bullet content"],
+  tools: "React · Node.js",
   renderedProject: "Experience",
   date: "Jan 2024 - Present",
   title: "Software Engineer",
-  position: "left",
 };
 
 const projectProps = {
@@ -38,9 +39,11 @@ describe("Project Component", () => {
       expect(screen.getByText(/Jan 2024 - Present/)).toBeInTheDocument();
     });
 
-    it("renders job description", () => {
+    it("renders the subtitle, bullets, and tools footer", () => {
       render(<Project {...experienceProps} />);
-      expect(screen.getByText("Test description content")).toBeInTheDocument();
+      expect(screen.getByText("A test company subtitle")).toBeInTheDocument();
+      expect(screen.getByText("Test bullet content")).toBeInTheDocument();
+      expect(screen.getByText(/React · Node.js/)).toBeInTheDocument();
     });
   });
 

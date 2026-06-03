@@ -11,13 +11,15 @@ import TagALogV2Pc from "./images/desktop-TagALog_v2.png";
 import TagALogV2Mobile from "./images/mobile-TagALog_v2.png";
 import DailyVersePc from "./images/desktop-DailyVerse.png";
 import DailyVerseMobile from "./images/mobile-DailyVerse.png";
+import DiceTablePc from "./images/desktop-dice-table.png";
+import DiceTableMobile from "./images/phone-dice-table.png";
 
 //Local PNG icons (no Devicon equivalent)
 import yelp from "./images/yelp.png";
 import sfml from "./images/SFML.png";
+import ChakraUIv3 from "./images/chakra-ui.png";
 
 // TODO: Download and add these local PNGs for non-Devicon icons
-// import ChakraUIv3 from "./images/chakra-ui.png";
 // import Expo from "./images/expo.png";
 // import EASBuild from "./images/eas-build.png";
 // import ReactNativePaper from "./images/react-native-paper.png";
@@ -26,6 +28,7 @@ import sfml from "./images/SFML.png";
 // import RevenueCat from "./images/revenuecat.png";
 // import YjCRDT from "./images/yjs-crdt.png";
 // import ClaudeVision from "./images/claude-vision.png";
+// import Recharts from "./images/recharts.png";
 
 const devicon = (className, name) => ({
   type: "devicon",
@@ -40,88 +43,77 @@ export const ProjectList = {
       name: "OneView Commerce",
       title: "Software Development Engineer",
       link: "https://www.oneviewcommerce.com/",
-      description: (
-        <ul>
-          <li>
-            Developed client-facing features(Omni Channel POS, Inventory
-            Management APP, CRM Dashboard)
-          </li>
-          <li>
-            Designed, implemented, and optimized Serverless microservice API
-            endpoints using RESTful architecture.
-          </li>
-          <li>
-            Ensured 100% unit and integration test coverage using Jest, Enzyme,
-            and SonarCloud to maintain code quality and system reliability.
-          </li>
-          <li>
-            Led the database migration from Cloudant to Firebase/Firestore,
-            ensuring data integrity and seamless transition.
-          </li>
-          <li>
-            Provided developer support during deployments and releases,
-            troubleshooting issues and ensuring smooth rollouts
-          </li>
-          <li>
-            Contributed to workplace culture as part of the company's Culture
-            Committee, fostering team engagement and collaboration.
-          </li>
-        </ul>
-      ),
-      date: "May 2021 - Feb 2025",
+      subtitle:
+        "Enterprise SaaS retail platform — Omni-Channel POS, Order Fulfillment & CRM for global brands",
+      date: "May 2021 – Feb 2025",
+      bullets: [
+        <>
+          <b>Pick &amp; Pack:</b> shipped the order-fulfillment MVP to 50+ Molton
+          Brown stores, replacing legacy warehouse workflows — full serverless
+          AWS Lambda API, IndexedDB offline sync, and Firestore optimistic
+          locking with versioned documents.
+        </>,
+        <>
+          <b>Australia Post migration:</b> led solo migration of 1M+ Cloudant
+          documents to Firestore at 100% accuracy — atomic batch writes,
+          fail-and-split retries, dead-letter queuing, exponential backoff, and
+          checkpoint resumability.
+        </>,
+        <>
+          <b>Alert Center:</b> built a real-time order dashboard for 100+ Kroger
+          delivery drivers with live Firestore updates and dispatch
+          notifications.
+        </>,
+        <>
+          <b>POS Self-Checkout:</b> delivered a production-ready MVP demoed to
+          1,000+ attendees at NRF (React, Redux, TypeScript, Cordova).
+        </>,
+        <>
+          <b>Quality:</b> maintained 100% unit &amp; integration coverage (Jest,
+          Enzyme, SonarCloud) under a zero-lint-warning CI/CD policy.
+        </>,
+      ],
+      tools:
+        "React · Redux · TypeScript · AWS Lambda · Firestore · IndexedDB · Jest",
     },
     {
-      name: "OnboardList",
+      name: "Onboardlist",
       title: "Software Engineer",
       link: "https://www.onboardlist.com/",
-      description: (
-        <ul>
-          <li>
-            Improved application by encapsulating backend server configuration
-            and protecting confidential keys and secrets by pursuing proper
-            security standards.
-          </li>
-          <li>
-            Refactored REST-API Endpoints to improve user/account management and
-            secure stripe transactions.
-          </li>
-          <li>
-            Handles the migration, management and queries of the project's
-            PostgreSQL Database.
-          </li>
-          <li>
-            Implemented "Checklist" core feature to allow users to create and
-            manage their onboarding checklist.
-          </li>
-          <li>
-            Improved "Checklist" widget to no longer rely on jQuery
-            dependencies.
-          </li>
-          <li>
-            Led the integration of 3rd party APIs to work in accordance to the
-            project needs.
-          </li>
-        </ul>
-      ),
-      date: "July 2020 - May 2021",
+      subtitle:
+        "Early-stage startup building onboarding workflow tools for SMBs",
+      date: "July 2020 – May 2021",
+      bullets: [
+        <>
+          Refactored REST API endpoints for user/account management and secure
+          Stripe payments, hardening backend security configuration.
+        </>,
+        <>
+          Built core features — a CRM dashboard and interactive checklist widget
+          — and led third-party API integrations.
+        </>,
+        <>Managed migrations and query optimization for the PostgreSQL database.</>,
+      ],
+      tools: "Node.js · Express · PostgreSQL · React · Stripe",
     },
     {
       name: "Dananza",
-      title: "Frontend Developer - Intern",
+      title: "Frontend Developer — Intern",
       link: "https://www.linkedin.com/company/dananza/posts/?feedView=all",
-      description: (
-        <ul>
-          <li>
-            Created new UI components and applied it in creating new campaign
-            page series using React.js and Next.js.
-          </li>
-          <li>
-            Mentor meetings and stand-ups to document and assign/discuss tasks
-            in ClickUp/Microsoft Teams.
-          </li>
-        </ul>
-      ),
-      date: "March  2020 - April 2020",
+      subtitle:
+        "Startup connecting local businesses with food influencers for marketing campaigns",
+      date: "March 2020 – April 2020",
+      bullets: [
+        <>
+          Created new UI components and built a new campaign page series with
+          React.js and Next.js.
+        </>,
+        <>
+          Participated in mentor meetings and stand-ups, documenting and
+          assigning tasks in ClickUp / Microsoft Teams.
+        </>,
+      ],
+      tools: "React · Next.js · ClickUp · Microsoft Teams",
     },
   ],
 
@@ -150,7 +142,23 @@ export const ProjectList = {
         // img(ClaudeVision, "Claude Vision"),
       ],
       description:
-        "Tag-A-Log is an offline-first journaling app for Android, iOS, and Web that enables users to create, organize, and tag rich text journals with mood tracking, templates, and a browser extension for quick web clipping with AI page summarization on Chrome, Firefox, Safari, and more. Tag-A-Log offers bidirectional syncing with Firebase for seamless cross-platform access with features such as guest access, soft delete trash, import and export, and future premium features such as PIN/biometric-locked tags, an AI auto-writer, photo journaling with AI analysis, and real-time collaborative live sharing with friends powered by Yjs CRDT. With its local-first SQLite implementation and RevenueCat-supported subscription model, Tag-A-Log is built to scale from personal daily journaling to collaborative journaling with friends.",
+        "Cross-platform offline-first personal log app (Expo, React Native, React 19, TypeScript, Firebase) for Android, iOS & Web from a single codebase — tag-first organization, a ProseMirror rich-text editor, a Manifest V3 browser extension, and a bidirectional SQLite↔Firestore sync engine.",
+    },
+    {
+      name: "DiceTable",
+      imgPc: DiceTablePc,
+      imgMobile: DiceTableMobile,
+      link: "https://dice-table.app/",
+      stack: [
+        devicon("devicon-react-original colored", "React"),
+        devicon("devicon-typescript-plain colored", "TypeScript"),
+        devicon("devicon-vitejs-plain colored", "Vite"),
+        img(ChakraUIv3, "Chakra UI"),
+        // TODO: Uncomment after downloading local PNG
+        // img(Recharts, "Recharts"),
+      ],
+      description:
+        "A probability tool for tabletop gaming — define named rolls and see exact stats with a PMF/CDF overlay, powered by a pure, dependency-free TypeScript engine and Chakra UI v3.",
     },
     {
       name: "Daily-Verse-Generator",
@@ -163,11 +171,10 @@ export const ProjectList = {
         devicon("devicon-typescript-plain colored", "TypeScript"),
         devicon("devicon-firebase-plain colored", "Firebase"),
         devicon("devicon-react-original colored", "React"),
-        // TODO: Uncomment after downloading local PNG
-        // img(ChakraUIv3, "Chakra UI"),
+        img(ChakraUIv3, "Chakra UI"),
       ],
       description:
-        "A Next.js web application that can generate shareable Bible verse images with beautiful dark gradient backgrounds, custom typography, and icons. Users can choose from various Bible translations, randomly generate Bible verses rendered as downloadable/shareable cards, and view a daily rotating Unsplash banner image. The application utilizes Firebase Cloud Functions with Sharp for image compositing, Firestore for global verse counts, and rate limiting.",
+        "A Next.js 15 app that generates shareable Bible-verse cards on demand — a Firebase Cloud Functions pipeline composites each card server-side, with 7 translations, a daily Unsplash banner, and IP-based rate limiting.",
     },
     {
       name: "Tag-A-Log",
@@ -183,9 +190,8 @@ export const ProjectList = {
         devicon("devicon-react-original colored", "React"),
         devicon("devicon-nodejs-plain colored", "Node.js"),
       ],
-      description: `An information, bookmarks and log manager that allows users to store urls,
-       code snippets or articles notes with appropriate description and "tag"
-       them for categorization and fast searching for easier log management.`,
+      description:
+        "An information, bookmark, and log manager — store URLs, code snippets, and notes, then tag them for fast categorization and search.",
     },
     {
       name: "Memegram",
@@ -201,12 +207,8 @@ export const ProjectList = {
         devicon("devicon-react-original colored", "React"),
         devicon("devicon-nodejs-plain colored", "Node.js"),
       ],
-      description: `An Image(Memes) browsing app where you can browse memes to your
-      hearts content and be filled with giggles! Or be a contributor
-       and create an account and upload memes yourself whether
-       it be something you found online or something wipped up yourself,
-       you can then give it some funny title or witty description to add to its "memeness".
-       Do you find a particular meme extremely funny? is it boring or weak? Leave a comment and let the poster know!`,
+      description:
+        "A meme-browsing community app — browse, upload, title, and comment on memes, backed by an Express + PostgreSQL API.",
     },
     {
       name: "NearMe App",
@@ -221,9 +223,8 @@ export const ProjectList = {
         devicon("devicon-css3-plain colored", "CSS3"),
         img(yelp, "Yelp API"),
       ],
-      description: `
-        Quickly find restaurants, parks, and businesses around with you with a click of a button.
-        `,
+      description:
+        "Quickly find restaurants, parks, and businesses around you with one click, powered by the Yelp API.",
     },
   ],
 
@@ -237,20 +238,16 @@ export const ProjectList = {
         img(sfml, "SFML"),
         devicon("devicon-cplusplus-plain colored", "C++"),
       ],
-      description: `A Solo project to house all of my past SFML projects which allows user to play all SFML games I've worked on.
-        I implemented multiple programming techniques such as Class structure hierarchy to showcase
-        Object-Oriented Programming principles, pointers for some Dynamic Memory Allocation,
-         Enum States for AI behaviors and also some 2d Math in form of vectors and trigonometry.`,
+      description:
+        "A C++/SFML capstone housing my past SFML games — OOP class hierarchies, dynamic memory, enum-state AI, and 2D vector math.",
     },
     {
       name: "ShadowBot",
       imgPc: ShadowBot,
       link: "https://a1clark1a.itch.io/shadowbot",
       stack: [devicon("devicon-unrealengine-original", "Unreal Engine")],
-      description: `Shadowbot is a 2d-Sidescroller shooter game made in Unreal 4 using Blueprints.
-       A solo project I made for a class which I continued to work on and improve.
-        Shadowbot is still in its prototype stage and currently contains 1 level but
-        the game is playable with majority of the game mechanics and player functionality already implemented.`,
+      description:
+        "A 2D side-scroller shooter built in Unreal Engine 4 with Blueprints — a playable prototype with most mechanics implemented.",
     },
   ],
 };

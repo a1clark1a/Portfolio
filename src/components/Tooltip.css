@@ -18,7 +18,7 @@
   background-color: var(--color-bg-darker);
   padding: 4px 12px;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(204, 43, 43, 0.5);
+  box-shadow: 0 0 8px var(--glow);
   opacity: 0;
   pointer-events: none;
   transition:

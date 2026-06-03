@@ -1,26 +1,29 @@
-import { useCallback, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
-import { Particles, ParticlesProvider } from "@tsparticles/react";
+import { tsParticles } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { options } from "./particlesjs-config";
 import headshot from "../About/headshot.jpg";
 import useFadeIn from "../hooks/useFadeIn";
 import "./Main.css";
 
-// Particle palette flips with the theme so dots/links never go invisible.
+// Particles adopt the accent color per theme — red on dark, blue on light —
+// kept low-opacity (see particlesjs-config) so they sit behind the text, not over it.
 const PARTICLE_COLORS = {
-  dark: { dot: "#ff0000", link: "#ffffff", tri: "#ffffff" },
-  light: { dot: "#2563eb", link: "#9db4cd", tri: "#cdd9e6" },
+  dark: { dot: "#e23b3b", link: "#cc2b2b", tri: "#cc2b2b" },
+  light: { dot: "#2563eb", link: "#2563eb", tri: "#2563eb" },
 };
+
+// loadSlim registers the slim preset onto the engine once for the whole app.
+// Caching the promise keeps React 19 StrictMode's double-mount from registering twice.
+let enginePromise;
+function ensureEngine() {
+  if (!enginePromise) enginePromise = loadSlim(tsParticles);
+  return enginePromise;
+}
 
 export default function Main({ theme = "dark" }) {
   const heroRef = useFadeIn({ threshold: 0.1 });
-
-  // tsParticles v4: the engine registrar passed to ParticlesProvider must keep a
-  // stable identity for the app's lifetime (the provider throws if it changes).
-  const initParticles = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
 
   const themedOptions = useMemo(() => {
     const c = PARTICLE_COLORS[theme] || PARTICLE_COLORS.dark;
@@ -38,16 +41,36 @@ export default function Main({ theme = "dark" }) {
     };
   }, [theme]);
 
+  // Drive the engine directly rather than via <Particles>/<ParticlesProvider>:
+  // the v4 React wrapper double-loads the same container id under StrictMode and
+  // races its own cleanup, blanking the canvas on first paint. Checking `cancelled`
+  // *before* load() guarantees only the surviving mount actually loads.
+  useEffect(() => {
+    let container;
+    let cancelled = false;
+
+    ensureEngine()
+      .then(() => {
+        if (cancelled) return undefined;
+        return tsParticles.load({ id: "tsparticles", options: themedOptions });
+      })
+      .then((loaded) => {
+        if (cancelled) {
+          loaded?.destroy();
+          return;
+        }
+        container = loaded;
+      });
+
+    return () => {
+      cancelled = true;
+      container?.destroy();
+    };
+  }, [themedOptions]);
+
   return (
     <section className="home-sect" id="home" aria-label="Introduction">
-      <ParticlesProvider init={initParticles}>
-        <Particles
-          key={theme}
-          className="particles"
-          id="tsparticles"
-          options={themedOptions}
-        />
-      </ParticlesProvider>
+      <div id="tsparticles" className="particles" aria-hidden="true" />
 
       <div className="wrap hero-grid">
         <div ref={heroRef} className="hero-text fade-in">

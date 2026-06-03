@@ -9,11 +9,11 @@ export const options = {
       },
     },
     color: {
+      // Hue is set per-theme in Main.jsx (red on dark, blue on light). The hue
+      // animation is intentionally OFF so the dots stay on the accent color.
       value: "#ff0000",
       animation: {
-        enable: true,
-        speed: 20,
-        sync: true,
+        enable: false,
       },
     },
     shape: {
@@ -32,12 +32,12 @@ export const options = {
       enable: true,
       distance: 150,
       color: "#ffffff",
-      opacity: 0.4,
+      opacity: 0.35,
       width: 1,
       triangles: {
         enable: true,
         color: "#ffffff",
-        opacity: 0.1,
+        opacity: 0.06,
       },
     },
     move: {

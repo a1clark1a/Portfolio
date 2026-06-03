@@ -1,11 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import Main from "./Main";
 
-// Mock the particles library (tsParticles v4: named Particles + ParticlesProvider)
-vi.mock("@tsparticles/react", () => ({
-  __esModule: true,
-  Particles: () => null,
-  ParticlesProvider: ({ children }) => children,
+// Mock the particles engine — Main drives tsParticles.load() directly.
+vi.mock("@tsparticles/engine", () => ({
+  tsParticles: { load: () => Promise.resolve({ destroy: () => {} }) },
 }));
 vi.mock("@tsparticles/slim", () => ({
   loadSlim: () => Promise.resolve(),

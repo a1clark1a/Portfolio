@@ -21,9 +21,16 @@ describe("Main Component", () => {
     expect(screen.getByText(/I'm Clark Perfecto/)).toBeInTheDocument();
   });
 
-  it("renders the title", () => {
+  it("renders the eyebrow label", () => {
     render(<Main />);
-    expect(screen.getByText(/Software Engineer \| Full Stack/)).toBeInTheDocument();
+    expect(screen.getByText("Software Engineer · Full Stack")).toBeInTheDocument();
+  });
+
+  it("renders the headshot moved into the hero", () => {
+    render(<Main />);
+    expect(
+      screen.getByAltText("Anthony Clark Perfecto headshot")
+    ).toBeInTheDocument();
   });
 
   it("renders the call-to-action button", () => {

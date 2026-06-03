@@ -1,0 +1,42 @@
+.edu-sect {
+  background-color: var(--color-bg-medium);
+  color: var(--color-text-light);
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-card);
+  margin-top: 3rem;
+}
+
+.edu-card {
+  padding: 1.75rem;
+}
+
+.edu-card .cap {
+  font-size: 1.8rem;
+}
+
+.edu-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.edu-card .school {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.edu-card .meta {
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 900px) {
+  .edu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

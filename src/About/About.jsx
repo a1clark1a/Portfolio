@@ -1,41 +1,80 @@
 import "./About.css";
-import headshot from "./headshot.jpg";
-import Contact from "../Contact/Contact";
-import TechStack from "../TechStack/TechStack";
+import Reveal from "../components/Reveal";
 import useFadeIn from "../hooks/useFadeIn";
 
+const STATEMENTS = [
+  {
+    num: "01",
+    text: (
+      <>
+        Shipped a production order-fulfillment MVP to{" "}
+        <b>50+ Molton Brown stores</b>, replacing legacy warehouse workflows.
+      </>
+    ),
+    sub: "Serverless AWS Lambda API · offline IndexedDB sync · Firestore optimistic locking",
+  },
+  {
+    num: "02",
+    text: (
+      <>
+        Built a real-time dispatch dashboard for <b>100+ Kroger drivers</b>,
+        powering live pickup &amp; delivery order updates.
+      </>
+    ),
+    sub: "Live Firestore sync · dispatch notifications · order completion",
+  },
+  {
+    num: "03",
+    text: (
+      <>
+        Migrated <b>1M+ records</b> to Firestore at <b>100% accuracy</b> — zero
+        data loss across live systems.
+      </>
+    ),
+    sub: "Atomic batch writes · fail-and-split retries · checkpoint resumability",
+  },
+  {
+    num: "04",
+    text: (
+      <>
+        <b>100%</b> unit + integration test coverage, enforced in CI/CD.
+      </>
+    ),
+    sub: "Jest · Playwright · zero-lint-warning policy",
+  },
+];
+
 export default function About() {
-  const picRef = useFadeIn();
-  const bioRef = useFadeIn({ threshold: 0.2 });
+  const headRef = useFadeIn({ threshold: 0.2 });
 
   return (
-    <section className="about-sect" id="about">
-      <article className="pic-wrapper">
-        <img
-          ref={picRef}
-          src={headshot}
-          className="prof-pic fade-in"
-          alt="Anthony Clark Perfecto headshot"
-        />
-        <div ref={bioRef} className="paragraph-container fade-in">
-          <p className="description">
-            Full Stack Engineer with 5+ years of experience developing
-            cross-platform applications using Android, iOS, and Web platforms
-            with React, React Native, Expo, and TypeScript. Experienced in cloud
-            architecture using AWS serverless microservices and Firebase.
-            Hands-on experience migrating databases and developing offline-first
-            sync systems. Strong focus on code quality through extensive
-            testing.
-          </p>
-
-          <p className="description">
-            Check out my projects below and at GitHub, and feel free to connect
-            with me on LinkedIn!
-          </p>
+    <section className="about-sect section" id="about">
+      <div className="wrap">
+        <div ref={headRef} className="fade-in">
+          <p className="eyebrow">01 — About</p>
+          <h2 className="spine-h">About me</h2>
         </div>
-      </article>
-      <Contact />
-      <TechStack />
+
+        <p className="about-lead">
+          I build cross-platform apps that hold up when the network doesn't —
+          offline-first architecture, bidirectional sync engines, and migrations
+          that move a million records without dropping one. I came up through{" "}
+          <b>game programming</b> and now ship <b>enterprise software</b>,
+          carrying the same obsession with things that just work.
+        </p>
+
+        <div className="manifesto">
+          {STATEMENTS.map((statement, i) => (
+            <Reveal key={statement.num} index={i} className="manifesto-item">
+              <div className="manifesto-num">{statement.num}</div>
+              <div className="manifesto-text">
+                {statement.text}
+                <small>{statement.sub}</small>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

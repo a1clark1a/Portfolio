@@ -35,6 +35,7 @@ describe("App Component", () => {
   it("renders main sections", () => {
     render(<App />);
     expect(screen.getByText(/I'm Clark Perfecto/)).toBeInTheDocument();
+    expect(screen.getByText("Technical Skills")).toBeInTheDocument();
     expect(screen.getByText(/Let's get in touch/)).toBeInTheDocument();
   });
 });

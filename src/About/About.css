@@ -1,39 +1,10 @@
-.prof-pic {
-  border: 1px solid white;
-  border-radius: 50%;
-  width: 205px;
-  height: 265px;
-  object-fit: cover;
-  margin: 0 10px;
-}
-
-article {
-  padding-bottom: 50px;
-}
-
-.pic-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 0 0 0;
-}
-
-.paragraph-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .about-sect {
-  text-align: center;
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-muted);
-  padding: 0 2rem;
   position: relative;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
 }
 
+/* Fade into the next (Skills) section */
 .about-sect::after {
   content: "";
   position: absolute;
@@ -46,59 +17,70 @@ article {
   z-index: 1;
 }
 
-.about-sect h2 {
-  padding-bottom: 20px;
+/* standfirst — voice-driven lead, not a repeat of the hero blurb */
+.about-lead {
+  max-width: 60ch;
+  margin: 2.5rem 0 0.5rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--color-text-light);
 }
 
-.skill-header::after {
-  content: "";
+.about-lead b {
+  font-weight: 700;
+}
+
+/* manifesto — numbered editorial statements (proof) */
+.manifesto {
+  margin-top: 2rem;
+}
+
+.manifesto-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.manifesto-item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.manifesto-num {
+  min-width: 2rem;
+  padding-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+}
+
+.manifesto-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.6vw, 2.05rem);
+  line-height: 1.28;
+}
+
+.manifesto-text b {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.manifesto-text small {
   display: block;
-  margin: auto;
-  width: 50%;
-  padding-top: 20px;
-  border-bottom: 3px solid var(--color-primary);
+  margin-top: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-dim);
 }
 
-.about-sect h3 {
-  color: var(--color-text-muted);
-  padding-bottom: 10px;
-}
-
-.skills ul {
-  padding: 0;
-}
-
-.skills-list {
-  padding-top: 50px;
-}
-
-@media screen and (min-width: 800px) {
-  .skills {
-    display: flex;
-    justify-content: space-evenly;
+@media screen and (min-width: 600px) {
+  .manifesto-item {
+    gap: 1.5rem;
   }
-
-  .skills > div {
-    margin: 0 10px;
-  }
-
-  .description {
-    margin: 10px;
-    font-size: 20px;
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .description {
-    margin-top: 50px;
-    font-size: 20px;
-  }
-
-  .pic-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .manifesto-num {
+    min-width: 3rem;
   }
 }

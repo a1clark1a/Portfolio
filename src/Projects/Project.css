@@ -1,239 +1,245 @@
-.img-mob {
-  margin-bottom: 10px;
+/* ============================
+   Experience cards
+   ============================ */
+.exp-card {
+  width: 100%;
+  padding: 2rem;
+  border-left: 3px solid transparent;
+}
+
+.exp-card:hover {
+  border-left-color: var(--color-primary);
+}
+
+.exp-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.exp-head h3 {
+  font-family: var(--font-heading);
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.exp-head .ico {
+  color: var(--color-primary);
+}
+
+.exp-head a {
+  color: inherit;
+}
+
+.exp-head a:hover h3 {
+  color: var(--color-primary);
+}
+
+.exp-sub {
+  color: var(--color-text-dim);
+  margin: 0.25rem 0 1rem;
+}
+
+.exp-role {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-weight: 700;
+  padding: 0.35rem 0;
+}
+
+.exp-role .date {
+  color: var(--color-text-dim);
+  font-weight: 400;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.exp-bullets {
+  color: var(--color-text-dim);
+  padding-left: 1.2rem;
+  margin: 1rem 0 0;
+}
+
+.exp-bullets li {
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+.exp-bullets li::marker {
+  color: var(--color-primary);
+}
+
+.exp-bullets b {
+  color: var(--color-text-light);
+}
+
+.exp-tools {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+}
+
+.exp-tools b {
+  color: var(--color-text-light);
+}
+
+/* ============================
+   Project cards — pre-framed device screenshots composited directly
+   (the PNGs already include the iMac/phone frames, so NO CSS framing here)
+   ============================ */
+.proj-card {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* contained on mobile; overhang re-enabled >=800 (bottom of file) */
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-media {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--media-bg);
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+/* monitor fills the media and stays inside the card */
+.proj-desktop {
+  width: 99%;
+  height: auto;
+}
+
+/* game art has no device frame + mixed aspect ratios — fix the box so every
+   single-image card is the SAME size, image centered and fully visible */
+.proj-media.single {
+  aspect-ratio: 16 / 10;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.proj-media.single .proj-desktop {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* base (mobile): the phone is centered + fully contained, the desktop monitor
+   hidden. The dramatic overhang is the >=800 enhancement at the bottom of the file. */
+.proj-media:not(.single) .proj-desktop {
+  display: none;
+}
+
+.proj-phone {
+  position: static;
+  /* Larger on small phones; steps back to 62% at >=sm (see below) */
+  width: 80%;
+  margin-inline: auto;
+  z-index: 2;
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.5));
 }
 
 .proj-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 2rem;
-  position: relative;
+  gap: 1rem;
+  flex: 1;
+  padding: 1.5rem;
 }
 
-/* Gradient blending between alternating project backgrounds */
-.body-left::after,
-.body-right::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.body-left::after {
-  background: linear-gradient(to bottom, transparent, var(--color-bg-dark));
-}
-
-.body-right::after {
-  background: linear-gradient(to bottom, transparent, var(--color-bg-medium));
-}
-
-/* Skip gradient on the last project — parent handles the final blend */
-.proj-art > .proj-body:last-child::after {
-  display: none;
-}
-
-.img-mob,
-.mobile-img {
-  width: 300px;
-}
-
-.proj-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.proj-body h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  margin: 0;
 }
 
 .proj-desc {
-  text-align: center;
-  margin: 2rem 0;
+  color: var(--color-text-dim);
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-.proj-stack-wrapper {
+.proj-tech {
   display: flex;
+  gap: 0.9rem;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.tech {
-  margin-left: 10px;
-  display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.body-right {
-  background-color: var(--color-bg-dark);
-}
-
-.proj-name {
-  margin: 2rem 0;
-}
-
-.tech img {
-  width: 100px;
-}
-
-.tech i {
-  font-size: 80px;
+.proj-tech i {
+  font-size: 2rem;
   line-height: 1;
 }
 
-.proj-summary {
+.proj-tech img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.proj-links {
   display: flex;
-  flex-direction: column;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.proj-links a,
+.proj-indev {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  display: inline-flex;
   align-items: center;
-}
-
-.repo-tab {
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-}
-
-/* Experience Cards */
-.card {
-  min-width: 300px;
-  max-width: 510px;
-  min-height: 400px;
-  background: var(--color-bg-card);
-  transition: all 0.4s;
+  min-height: var(--tap-target);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
-  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.705);
-  margin: 60px 30px 50px 30px;
-  padding: 30px 10px;
 }
 
-.card:hover {
-  border-radius: 15px;
-  cursor: pointer;
-  transform: scale(1.2);
+.proj-links a:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-.card:focus-within {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 4px;
+.proj-indev {
+  color: var(--color-text-dim);
 }
 
-.jobTitle {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 600;
-  color: #9fbdc7;
-  margin-bottom: 20px;
-}
-
-.jobDescription {
-  font-size: 16px;
-  letter-spacing: 0.05rem;
-}
-
-.companyName {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  text-decoration: none;
-  padding-left: 20px;
-}
-
-.workDate {
-  font-style: italic;
-  color: #e9e7e7;
-}
-
-@media screen and (max-width: 1300px) {
-  .repo-tab > .button {
-    display: block;
-    font-size: 1.2rem;
-    padding: 10px;
-    max-width: 200px;
+/* >=sm: the enlarged small-phone screenshot steps back to its default size on
+   roomier (but still single-column) widths. */
+@media screen and (min-width: 600px) {
+  .proj-media:not(.single) .proj-phone {
+    width: 62%;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .repo-tab > .button {
-    display: inline;
-    font-size: 1.2rem;
-    padding: 10px;
+/* >=md: the desktop monitor + the dramatic overhanging phone return, but ONLY
+   where the 2-col grid keeps each card narrow enough to host the overhang inside
+   the grid gap — this is what removes the old 500-800px horizontal-overflow zone. */
+@media screen and (min-width: 800px) {
+  .proj-card {
+    overflow: visible;
   }
-
-  .cardTitleContainer {
-    display: flex;
-    flex-direction: column;
+  .proj-media:not(.single) {
+    overflow: visible;
+    align-items: flex-end;
+    padding: 0.5rem 1% 0;
   }
-
-  .workDate {
-    padding-left: 20px;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .img-mob {
-    display: block;
-    margin: auto;
-  }
-}
-
-@media screen and (min-width: 1100px) {
-  .proj-body {
-    padding: 0 2rem;
-  }
-
-  .repo-tab {
-    margin-top: 0;
-  }
-
-  .proj-name {
-    text-align: center;
-    font-size: 2.5rem;
-    padding-top: 2rem;
-  }
-
-  .proj-wrapper {
-    flex-direction: row;
-  }
-
-  .wrapper-right {
-    flex-direction: row-reverse;
-  }
-
-  .img-pc {
-    width: 550px;
-  }
-
-  .img-mob {
-    width: 400px;
-  }
-
-  .proj-body {
+  .proj-media:not(.single) .proj-desktop {
     display: block;
   }
-
-  .right {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-left: 2rem;
-  }
-
-  .left {
-    display: flex;
-    flex-direction: row;
-    margin-right: 2rem;
-  }
-
-  .right > div {
-    margin-right: -150px;
-  }
-
-  .left > div {
-    margin-left: -150px;
-  }
-
-  .proj-desc {
-    font-size: 1.2rem;
+  .proj-media:not(.single) .proj-phone {
+    position: absolute;
+    width: 50%;
+    right: -6%;
+    top: -7%;
+    margin-inline: 0;
   }
 }

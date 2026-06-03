@@ -36,4 +36,32 @@ describe("Nav Component", () => {
     fireEvent.click(toggleButton);
     expect(screen.getByText("Home")).toBeInTheDocument();
   });
+
+  it("hides the menu on mobile until the hamburger is clicked", () => {
+    Object.defineProperty(window, "innerWidth", { value: 500, writable: true });
+    render(<Nav />);
+    const toggle = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByText("Home")).not.toBeInTheDocument();
+
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    expect(screen.getByText("Home")).toBeInTheDocument();
+  });
+
+  it("shows the menu by default on desktop widths", () => {
+    Object.defineProperty(window, "innerWidth", { value: 1024, writable: true });
+    render(<Nav />);
+    const toggle = screen.getByRole("button", { name: "Toggle navigation menu" });
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+    expect(screen.getByText("Home")).toBeInTheDocument();
+  });
+
+  it("treats exactly 800px as desktop so there is no dead zone at the breakpoint", () => {
+    // CSS (min-width:800) hides the hamburger at 800px; the JS must therefore
+    // render the links at 800px, or the user would see neither control.
+    Object.defineProperty(window, "innerWidth", { value: 800, writable: true });
+    render(<Nav />);
+    expect(screen.getByText("Home")).toBeInTheDocument();
+  });
 });

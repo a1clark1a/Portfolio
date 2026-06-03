@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { Particles, ParticlesProvider } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { options } from "./particlesjs-config";
 import headshot from "../About/headshot.jpg";
@@ -14,15 +14,12 @@ const PARTICLE_COLORS = {
 };
 
 export default function Main({ theme = "dark" }) {
-  const [init, setInit] = useState(false);
   const heroRef = useFadeIn({ threshold: 0.1 });
 
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
+  // tsParticles v4: the engine registrar passed to ParticlesProvider must keep a
+  // stable identity for the app's lifetime (the provider throws if it changes).
+  const initParticles = useCallback(async (engine) => {
+    await loadSlim(engine);
   }, []);
 
   const themedOptions = useMemo(() => {
@@ -43,14 +40,14 @@ export default function Main({ theme = "dark" }) {
 
   return (
     <section className="home-sect" id="home" aria-label="Introduction">
-      {init && (
+      <ParticlesProvider init={initParticles}>
         <Particles
           key={theme}
           className="particles"
           id="tsparticles"
           options={themedOptions}
         />
-      )}
+      </ParticlesProvider>
 
       <div className="wrap hero-grid">
         <div ref={heroRef} className="hero-text fade-in">

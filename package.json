@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.8.1",
+    "@tsparticles/react": "^4.1.2",
+    "@tsparticles/slim": "^4.1.2",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

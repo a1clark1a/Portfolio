@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+  OG share-card template for the portfolio.
+
+  This file is NOT deployed (only /dist is). It exists to generate the
+  1200x630 social thumbnail referenced by index.html as /og-image.png.
+
+  To export public/og-image.png:
+    A) Quick: open this file in Chrome, DevTools > Run command >
+       "Capture node screenshot" on the .card element (it is exactly 1200x630).
+    B) Headless one-liner (if you have it):
+       npx -y capture-website-cli og-card.html --element=".card" --output=public/og-image.png
+       (or use Puppeteer/Playwright to screenshot the .card clip at 1200x630)
+
+  The headshot is loaded from ./src/About/headshot.jpg, so open this file
+  from the repo root for the image to resolve.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Gelasio:wght@600;700&family=Lato:wght@400;700;900&display=swap"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        background: #0d0d0d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        font-family: "Lato", system-ui, sans-serif;
+      }
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #181818;
+        background-image:
+          radial-gradient(circle at 88% 18%, rgba(204, 43, 43, 0.35), transparent 42%),
+          radial-gradient(circle at 8% 95%, rgba(204, 43, 43, 0.16), transparent 45%);
+        color: #ffffff;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 64px;
+        padding: 84px 88px;
+      }
+      /* top accent bar, mirrors the site's nav underline */
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 8px;
+        background: #cc2b2b;
+      }
+      .logo {
+        position: absolute;
+        top: 40px;
+        left: 88px;
+        font-family: "Lato", sans-serif;
+        font-weight: 900;
+        font-size: 30px;
+        letter-spacing: 2px;
+        color: #ffffff;
+      }
+      .logo b { color: #cc2b2b; }
+      .left { padding-top: 28px; }
+      .eyebrow {
+        color: #e23b3b;
+        font-weight: 900;
+        letter-spacing: 4px;
+        font-size: 22px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .name {
+        font-family: "Gelasio", Georgia, serif;
+        font-weight: 700;
+        font-size: 92px;
+        line-height: 0.98;
+        margin-bottom: 22px;
+      }
+      .name span { color: #e23b3b; }
+      .role {
+        font-size: 38px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 34px;
+      }
+      .stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .stack span {
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 8px 20px;
+      }
+      .portrait {
+        width: 360px;
+        height: 360px;
+        object-fit: cover;
+        border-radius: 28px;
+        border: 4px solid rgba(204, 43, 43, 0.55);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      }
+      .url {
+        position: absolute;
+        bottom: 40px;
+        left: 88px;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.62);
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="logo">&lt;<b>ACP</b>/&gt;</div>
+
+      <div class="left">
+        <div class="eyebrow">Software Engineer · Full Stack</div>
+        <div class="name">Clark<br /><span>Perfecto</span></div>
+        <div class="role">Full Stack Software Engineer</div>
+        <div class="stack">
+          <span>React</span>
+          <span>React Native</span>
+          <span>TypeScript</span>
+          <span>Node.js</span>
+        </div>
+      </div>
+
+      <img class="portrait" src="./src/About/headshot.jpg" alt="Clark Perfecto" />
+
+      <div class="url">acperfecto.vercel.app</div>
+    </div>
+  </body>
+</html>

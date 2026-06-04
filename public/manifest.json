@@ -1,7 +1,18 @@
 {
+  "id": "/",
   "short_name": "ACP-Portfolio",
   "name": "Anthony Clark Perfecto Portfolio",
+  "description": "Portfolio of Anthony Clark Perfecto — full stack software engineer specializing in React, React Native, TypeScript, and Node.js.",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["portfolio", "productivity"],
   "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
@@ -10,16 +21,33 @@
     {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
       "src": "android-chrome-512x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "Portfolio.PNG",
+      "sizes": "1577x779",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Clark Perfecto portfolio home"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#181818"
 }

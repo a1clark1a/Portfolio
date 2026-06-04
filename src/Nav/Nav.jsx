@@ -81,6 +81,22 @@ const Nav = ({ theme = "dark", toggleTheme }) => {
     return () => clearInterval(scrambleTimer.current);
   }, [runScramble]);
 
+  // Keep the browser-tab favicon in sync with the active theme (not just the OS).
+  // Browsers ignore an in-place href change AND may keep painting a cached static
+  // icon (e.g. the .ico). So remove EVERY rel="icon" link and append one fresh
+  // themed SVG — leaving the browser a single, unambiguous icon to render.
+  useEffect(() => {
+    const href = theme === "light" ? "/favicon-light.svg" : "/favicon-dark.svg";
+    document
+      .querySelectorAll("link[rel~='icon']")
+      .forEach((el) => el.remove());
+    const link = document.createElement("link");
+    link.rel = "icon";
+    link.type = "image/svg+xml";
+    link.href = `${href}?v=${theme}`;
+    document.head.appendChild(link);
+  }, [theme]);
+
   useEffect(() => {
     const handleResize = () => {
       const width = getWidth();

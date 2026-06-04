@@ -1,10 +1,29 @@
 # Portfolio
 
-## Live App: https://acperfecto.now.sh/
+My personal developer portfolio — a single-page site with sections for About, Tech Stack, Projects, Education, and Contact. Includes a light/dark theme toggle and an animated particle background.
 
-## Author: Anthony Clark Perfecto
+**Live:** https://acperfecto.now.sh/
 
-## LinkedIn: https://www.linkedin.com/in/acperfecto/
+## Tech
 
-## Technology: HTML5, CSS3, JavascriptES6, React.JS, Vercel
+- React 19
+- Vite
+- tsParticles (animated background)
+- Vitest + Testing Library (tests)
+- Deployed on Vercel
 
+## Getting Started
+
+```bash
+npm install      # install dependencies
+npm run dev      # start the dev server
+npm run build    # build for production
+npm run preview  # preview the production build
+npm test         # run tests
+```
+
+## Author
+
+**Anthony Clark Perfecto**
+
+- LinkedIn: https://www.linkedin.com/in/acperfecto/

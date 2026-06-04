@@ -1,4 +1,3 @@
-import React from "react";
 import NearMe from "./images/desktop-NearMeApp.png";
 import NearMeMobile from "./images/mobile-NearMeApp_mobile.png";
 import GameCollection from "./images/GameCollectionjpg.jpg";

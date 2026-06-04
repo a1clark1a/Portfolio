@@ -22,7 +22,7 @@ const Project = ({
   const repoLabel =
     renderedProject === "Web Project" ? "Client Repo" : "Github Repo";
 
-  const RenderExperienceCard = () => (
+  const renderExperienceCard = () => (
     <div className="card exp-card">
       <div className="exp-head">
         <span className="ico" aria-hidden="true">
@@ -56,7 +56,7 @@ const Project = ({
     </div>
   );
 
-  const RenderProjectCard = () => (
+  const renderProjectCard = () => (
     <article className="card proj-card">
       <div className={`proj-media${hasMobile ? "" : " single"}`}>
         <img
@@ -114,11 +114,9 @@ const Project = ({
     </article>
   );
 
-  return renderedProject === "Experience" ? (
-    <RenderExperienceCard />
-  ) : (
-    <RenderProjectCard />
-  );
+  return renderedProject === "Experience"
+    ? renderExperienceCard()
+    : renderProjectCard();
 };
 
 Project.propTypes = {

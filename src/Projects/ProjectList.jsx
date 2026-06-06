@@ -148,6 +148,8 @@ export const ProjectList = {
       imgPc: DiceTablePc,
       imgMobile: DiceTableMobile,
       link: "https://dice-table.app/",
+      client: "https://github.com/a1clark1a/diceTable",
+      openSource: true,
       stack: [
         devicon("devicon-react-original colored", "React"),
         devicon("devicon-typescript-plain colored", "TypeScript"),

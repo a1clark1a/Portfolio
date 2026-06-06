@@ -11,6 +11,7 @@ const Project = ({
   stack = [],
   client,
   server,
+  openSource,
   renderedProject,
   date,
   title,
@@ -74,7 +75,12 @@ const Project = ({
       </div>
 
       <div className="proj-body">
-        <h3>{name}</h3>
+        <div className="proj-title-row">
+          <h3>{name}</h3>
+          {openSource && (
+            <span className="proj-badge">Open Source</span>
+          )}
+        </div>
         <p className="proj-desc">{description}</p>
 
         {stack.length > 0 && (
@@ -135,6 +141,7 @@ Project.propTypes = {
   ),
   client: PropTypes.string,
   server: PropTypes.string,
+  openSource: PropTypes.bool,
   renderedProject: PropTypes.string.isRequired,
   date: PropTypes.string,
   title: PropTypes.string,

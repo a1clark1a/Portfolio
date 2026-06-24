@@ -48,24 +48,26 @@ export const ProjectList = {
       bullets: [
         <>
           <b>Pick &amp; Pack:</b> shipped the order-fulfillment MVP to 50+ Molton
-          Brown stores, replacing legacy warehouse workflows — full serverless
-          AWS Lambda API, IndexedDB offline sync, and Firestore optimistic
-          locking with versioned documents.
+          Brown stores, fully replacing legacy warehouse workflows — a complete
+          serverless AWS Lambda REST API, IndexedDB offline sync layer, and
+          Firestore optimistic locking with versioned documents, all in
+          TypeScript.
         </>,
         <>
-          <b>Australia Post migration:</b> led solo migration of 1M+ Cloudant
-          documents to Firestore at 100% accuracy — atomic batch writes,
-          fail-and-split retries, dead-letter queuing, exponential backoff, and
-          checkpoint resumability.
+          <b>Australia Post migration:</b> wrote the Node.js script to migrate
+          1M+ IBM Cloudant documents to Firestore at 100% accuracy across live
+          systems — atomic batch writes, fail-and-split retries, dead-letter
+          queuing, exponential backoff, and checkpoint-based resumability.
         </>,
         <>
-          <b>Alert Center:</b> built a real-time order dashboard for 100+ Kroger
-          delivery drivers with live Firestore updates and dispatch
-          notifications.
+          <b>Alert Center:</b> integrated real-time Firestore order updates and
+          badge dispatch notifications into a central order-management dashboard
+          used by 100+ Kroger delivery drivers.
         </>,
         <>
-          <b>POS Self-Checkout:</b> delivered a production-ready MVP demoed to
-          1,000+ attendees at NRF (React, Redux, TypeScript, Cordova).
+          <b>POS Self-Checkout:</b> delivered a production-ready self-checkout
+          MVP demoed to 1,000+ attendees at NRF (React, Redux, TypeScript,
+          Material UI, Cordova).
         </>,
         <>
           <b>Quality:</b> maintained 100% unit &amp; integration coverage (Jest,
@@ -84,14 +86,14 @@ export const ProjectList = {
       date: "July 2020 – May 2021",
       bullets: [
         <>
-          Refactored REST API endpoints for user/account management and secure
-          Stripe payments, hardening backend security configuration.
+          Built an embeddable onboarding checklist widget in pure vanilla
+          JavaScript, syncing real-time progress over Pusher.
         </>,
         <>
-          Built core features — a CRM dashboard and interactive checklist widget
-          — and led third-party API integrations.
+          Built the React/Chakra CRM dashboard and refactored Node/Express +
+          PostgreSQL (Knex) REST endpoints for account management and Stripe
+          subscription billing; hardened secret management.
         </>,
-        <>Managed migrations and query optimization for the PostgreSQL database.</>,
       ],
       tools: "Node.js · Express · PostgreSQL · React · Stripe",
     },
@@ -104,8 +106,9 @@ export const ProjectList = {
       date: "March 2020 – April 2020",
       bullets: [
         <>
-          Created new UI components and built a new campaign page series with
-          React.js and Next.js.
+          Built the new-user campaign page series in React.js and Next.js — a
+          guided flow business owners use to launch a campaign and influencers
+          use to discover and apply.
         </>,
         <>
           Participated in mentor meetings and stand-ups, documenting and

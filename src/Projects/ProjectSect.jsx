@@ -72,6 +72,19 @@ const ProjectSect = () => {
                   <Project {...proj} renderedProject={key} />
                 </Reveal>
               ))}
+              {key === "Web Project" && (
+                <Reveal
+                  as="a"
+                  index={ProjectList[key].length}
+                  className="proj-archive"
+                  href="https://github.com/a1clark1a?tab=repositories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Looking for older work? Browse the full project archive on
+                  GitHub ↗
+                </Reveal>
+              )}
             </div>
           );
         })}

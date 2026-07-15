@@ -1,11 +1,5 @@
-import NearMe from "./images/desktop-NearMeApp.png";
-import NearMeMobile from "./images/mobile-NearMeApp_mobile.png";
 import GameCollection from "./images/GameCollectionjpg.jpg";
 import ShadowBot from "./images/shadowbot.png";
-import MemegramPC from "./images/desktop-Memegram.png";
-import MemegramMobile from "./images/mobile-Memegram_mobile.png";
-import TagALogPc from "./images/desktop-TagALog.png";
-import TagALogMobile from "./images/mobile-TagALog.png";
 import TagALogV2Pc from "./images/desktop-TagALog_v2.png";
 import TagALogV2Mobile from "./images/mobile-TagALog_v2.png";
 import DailyVersePc from "./images/desktop-DailyVerse.png";
@@ -14,7 +8,6 @@ import DiceTablePc from "./images/desktop-dice-table.png";
 import DiceTableMobile from "./images/phone-dice-table.png";
 
 //Local PNG icons (no Devicon equivalent)
-import yelp from "./images/yelp.png";
 import sfml from "./images/SFML.png";
 import ChakraUIv3 from "./images/chakra-ui.png";
 
@@ -47,11 +40,10 @@ export const ProjectList = {
       date: "May 2021 – Feb 2025",
       bullets: [
         <>
-          <b>Pick &amp; Pack:</b> shipped the order-fulfillment MVP to 50+ Molton
-          Brown stores, fully replacing legacy warehouse workflows — a complete
-          serverless AWS Lambda REST API, IndexedDB offline sync layer, and
-          Firestore optimistic locking with versioned documents, all in
-          TypeScript.
+          <b>Pick &amp; Pack:</b> shipped the order-fulfillment MVP to 50+
+          Molton Brown stores, fully replacing legacy warehouse workflows — a
+          complete serverless AWS Lambda REST API, IndexedDB offline sync layer,
+          and optimistic locking with Firestore Transactions, all in TypeScript.
         </>,
         <>
           <b>Australia Post migration:</b> wrote the Node.js script to migrate
@@ -75,7 +67,7 @@ export const ProjectList = {
         </>,
       ],
       tools:
-        "React · Redux · TypeScript · AWS Lambda · Firestore · IndexedDB · Jest",
+        "React · Redux · TypeScript · AWS Lambda · Firestore · Node.js · IndexedDB · Jest",
     },
     {
       name: "Onboardlist",
@@ -179,56 +171,6 @@ export const ProjectList = {
       ],
       description:
         "A Next.js 15 app that generates shareable Bible-verse cards on demand — a Firebase Cloud Functions pipeline composites each card server-side, with 7 translations, a daily Unsplash banner, and IP-based rate limiting.",
-    },
-    {
-      name: "Tag-A-Log",
-      imgPc: TagALogPc,
-      imgMobile: TagALogMobile,
-      link: "https://Tag-A-Log.now.sh/",
-      client: "https://github.com/a1clark1a/Tag-A-Log-Client",
-      server: "https://github.com/a1clark1a/Tag-A-Log-API-Server",
-      stack: [
-        devicon("devicon-postgresql-plain colored", "PostgreSQL"),
-        devicon("devicon-javascript-plain colored", "JavaScript"),
-        devicon("devicon-express-original", "Express"),
-        devicon("devicon-react-original colored", "React"),
-        devicon("devicon-nodejs-plain colored", "Node.js"),
-      ],
-      description:
-        "An information, bookmark, and log manager — store URLs, code snippets, and notes, then tag them for fast categorization and search.",
-    },
-    {
-      name: "Memegram",
-      imgPc: MemegramPC,
-      imgMobile: MemegramMobile,
-      link: "https://memegram.now.sh/",
-      client: "https://github.com/a1clark1a/Memegram-Client",
-      server: "https://github.com/a1clark1a/Memegram-Server",
-      stack: [
-        devicon("devicon-postgresql-plain colored", "PostgreSQL"),
-        devicon("devicon-javascript-plain colored", "JavaScript"),
-        devicon("devicon-express-original", "Express"),
-        devicon("devicon-react-original colored", "React"),
-        devicon("devicon-nodejs-plain colored", "Node.js"),
-      ],
-      description:
-        "A meme-browsing community app — browse, upload, title, and comment on memes, backed by an Express + PostgreSQL API.",
-    },
-    {
-      name: "NearMe App",
-      imgPc: NearMe,
-      imgMobile: NearMeMobile,
-      client: "https://github.com/a1clark1a/NearMe",
-      link: "https://a1clark1a.github.io/NearMe/",
-      stack: [
-        devicon("devicon-jquery-plain colored", "jQuery"),
-        devicon("devicon-javascript-plain colored", "JavaScript"),
-        devicon("devicon-html5-plain colored", "HTML5"),
-        devicon("devicon-css3-plain colored", "CSS3"),
-        img(yelp, "Yelp API"),
-      ],
-      description:
-        "Quickly find restaurants, parks, and businesses around you with one click, powered by the Yelp API.",
     },
   ],
 

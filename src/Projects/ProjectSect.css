@@ -95,6 +95,32 @@
   width: 100%;
 }
 
+/* Archive link — closes out the Web Project grid, spanning every column */
+.proj-archive {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  text-align: center;
+  color: var(--color-text-dim);
+  text-decoration: none;
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.proj-archive:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.proj-archive:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 @media screen and (min-width: 800px) {
   .proj-tab {
     justify-content: flex-start;

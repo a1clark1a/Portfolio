@@ -12,7 +12,11 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        // Injected by the `define` in vite.config.js.
+        __REPO_VERSIONS__: "readonly",
+      },
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     settings: { react: { version: "detect" } },

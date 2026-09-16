@@ -145,6 +145,11 @@ export const ProjectList = {
       link: "https://dice-table.app/",
       client: "https://github.com/a1clark1a/diceTable",
       openSource: true,
+      // The badge refreshes itself from this repo's package.json (see
+      // useLiveVersion). `versionFallback` is only the floor if both the live
+      // fetch and the build-time bake fail, so it is safe to leave stale.
+      versionRepo: "a1clark1a/diceTable",
+      versionFallback: "2.2.0",
       stack: [
         devicon("devicon-react-original colored", "React"),
         devicon("devicon-typescript-plain colored", "TypeScript"),
@@ -154,7 +159,7 @@ export const ProjectList = {
         // img(Recharts, "Recharts"),
       ],
       description:
-        "A probability tool for tabletop gaming — define named rolls and see exact stats with a PMF/CDF overlay, powered by a pure, dependency-free TypeScript engine and Chakra UI v3.",
+        "A probability tool for tabletop gaming — define named rolls and read exact odds from a pure, dependency-free TypeScript engine that convolves rather than simulates: success-counting dice pools, multi-target hit rates, roll-off and head-to-head comparisons, share links, and PNG export.",
     },
     {
       name: "Daily-Verse-Generator",

@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Tooltip from "../components/Tooltip";
+import useLiveVersion from "../hooks/useLiveVersion";
 import "./Project.css";
 
 const Project = ({
@@ -12,6 +13,8 @@ const Project = ({
   client,
   server,
   openSource,
+  versionRepo,
+  versionFallback,
   renderedProject,
   date,
   title,
@@ -20,6 +23,12 @@ const Project = ({
   tools,
 }) => {
   const hasMobile = Boolean(imgMobile);
+  // Called for every card so the hook order never changes; cards without a
+  // `versionRepo` get an empty version and make no request.
+  const { version } = useLiveVersion({
+    repo: versionRepo,
+    fallback: versionFallback,
+  });
   const repoLabel =
     renderedProject === "Web Project" ? "Client Repo" : "Github Repo";
 
@@ -57,9 +66,24 @@ const Project = ({
     </div>
   );
 
+  // The screenshots are the primary way into the live app, so the media itself
+  // is the link. Cards still in development have no `link` and stay a plain div.
+  const MediaTag = link ? "a" : "div";
+  const mediaLinkProps = link
+    ? {
+        href: link,
+        target: "_blank",
+        rel: "noopener noreferrer",
+        "aria-label": `${name} — open the live app`,
+      }
+    : {};
+
   const renderProjectCard = () => (
     <article className="card proj-card">
-      <div className={`proj-media${hasMobile ? "" : " single"}`}>
+      <MediaTag
+        className={`proj-media${hasMobile ? "" : " single"}`}
+        {...mediaLinkProps}
+      >
         <img
           className="proj-desktop"
           src={imgPc}
@@ -72,13 +96,24 @@ const Project = ({
             alt={`${name} mobile screenshot`}
           />
         )}
-      </div>
+      </MediaTag>
 
       <div className="proj-body">
         <div className="proj-title-row">
           <h3>{name}</h3>
           {openSource && (
             <span className="proj-badge">Open Source</span>
+          )}
+          {versionRepo && version && (
+            <a
+              className="proj-version"
+              href={`https://github.com/${versionRepo}/releases`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${name} v${version} — release notes on GitHub`}
+            >
+              v{version}
+            </a>
           )}
         </div>
         <p className="proj-desc">{description}</p>
@@ -97,14 +132,11 @@ const Project = ({
           </div>
         )}
 
+        {/* No "Live" button — the media above is the link. This row is only the
+            repos, plus the in-development note for cards with nothing to visit. */}
+        {(!link || client || server) && (
         <div className="proj-links">
-          {link ? (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              Live ↗
-            </a>
-          ) : (
-            <span className="proj-indev">In development →</span>
-          )}
+          {!link && <span className="proj-indev">In development →</span>}
           {client && (
             <a href={client} target="_blank" rel="noopener noreferrer">
               {repoLabel}
@@ -116,6 +148,7 @@ const Project = ({
             </a>
           )}
         </div>
+        )}
       </div>
     </article>
   );
@@ -142,6 +175,8 @@ Project.propTypes = {
   client: PropTypes.string,
   server: PropTypes.string,
   openSource: PropTypes.bool,
+  versionRepo: PropTypes.string,
+  versionFallback: PropTypes.string,
   renderedProject: PropTypes.string.isRequired,
   date: PropTypes.string,
   title: PropTypes.string,
